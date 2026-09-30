@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operus Surgical Suite — Master Blueprint & Branding Vault</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-[#090D16] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Password Gate Modal -->
+  <div id="authGate" class="fixed inset-0 z-50 flex items-center justify-center bg-[#090D16] p-4">
+    <div class="absolute w-[400px] h-[400px] bg-gradient-to-tr from-[#006948]/30 via-emerald-500/20 to-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="w-full max-w-md bg-slate-900/90 border border-slate-800 p-8 rounded-2xl shadow-2xl backdrop-blur-md relative z-10 space-y-6">
+      <div class="text-center space-y-2">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#006948] to-slate-900 border border-emerald-500/40 text-[#84CC16] mb-2 shadow-lg">
+          <i data-lucide="lock" class="w-7 h-7"></i>
+        </div>
+        <h1 class="text-2xl font-extrabold text-white tracking-tight">Operus Blueprint Vault</h1>
+        <p class="text-xs text-slate-400">Acesso protegido à arquitetura técnica, CitasYa design tokens e prompts IA.</p>
+      </div>
+
+      <form id="loginForm" onsubmit="handleAuth(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Chave de Acesso</label>
+          <div class="relative">
+            <i data-lucide="key-round" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="password" id="passInput" placeholder="Digite a senha..." autofocus class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#006948] transition">
+          </div>
+          <p id="errorMsg" class="text-xs text-rose-400 mt-1.5 font-medium hidden">Senha incorreta. Tente novamente.</p>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-[#006948] hover:bg-emerald-600 active:scale-95 text-white font-bold text-sm rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+          <i data-lucide="shield-check" class="w-4 h-4 text-[#84CC16]"></i>
+          <span>Desbloquear Especificação</span>
+        </button>
+      </form>
+
+      <div class="text-center pt-2 border-t border-slate-800">
+        <span class="text-[11px] text-slate-500">Operus Surgical Suite • ClubeMkt Ecosystem</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Protected App Content -->
+  <div id="appContent" class="hidden flex-1 flex flex-col">
+    <!-- Top Nav -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#006948] to-slate-900 border border-emerald-500/40 flex items-center justify-center text-[#84CC16] font-bold text-lg shadow-md font-heading">
+          OP
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-bold text-white font-heading">Operus Surgical Suite</h1>
+            <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-emerald-500/20 text-[#84CC16] border border-emerald-500/30">
+              Blueprint & AI Hub
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">Master Architecture, CitasYa Design Tokens & Brand Prompts</p>
+        </div>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 overflow-x-auto">
+        <button onclick="switchTab('architecture')" id="tab-architecture" class="tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#006948] text-white">
+          <i data-lucide="database" class="w-3.5 h-3.5"></i>
+          <span>Arquitetura & 22 Tabelas</span>
+        </button>
+        <button onclick="switchTab('design-system')" id="tab-design-system" class="tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white">
+          <i data-lucide="palette" class="w-3.5 h-3.5"></i>
+          <span>CitasYa Design System</span>
+        </button>
+        <button onclick="switchTab('prompts')" id="tab-prompts" class="tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Prompts IA Master</span>
+        </button>
+        <button onclick="switchTab('branding')" id="tab-branding" class="tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white">
+          <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+          <span>Carrossel & Banners</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Viewport -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-6 space-y-6">
+
+      <!-- View 1: Architecture -->
+      <section id="view-architecture" class="tab-view space-y-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            <div>
+              <h2 class="text-lg font-bold text-white flex items-center gap-2 font-heading">
+                <i data-lucide="layers" class="w-5 h-5 text-emerald-400"></i>
+                Estrutura do Monorepo & Modelos de Dados
+              </h2>
+              <p class="text-xs text-slate-400">Next.js 15 (App Router) + Expo SDK 52 + Supabase PostgreSQL Backend</p>
+            </div>
+            <span class="text-xs bg-emerald-950 text-emerald-300 border border-emerald-700/50 px-2.5 py-1 rounded-lg font-mono">
+              /root/ClubeMkt/operus
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
+              <span class="font-bold text-emerald-400 flex items-center gap-1.5 font-heading text-sm">
+                <i data-lucide="monitor" class="w-4 h-4"></i> apps/web (Next.js 15)
+              </span>
+              <p class="text-slate-400 leading-relaxed">
+                App Router com SSR, Bento Grid responsivo, paleta tropical cirúrgica, emissor de orçamentos e portal público de TCLE digital (<code class="text-lime-300">/aceite-termo/:token</code>).
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
+              <span class="font-bold text-[#84CC16] flex items-center gap-1.5 font-heading text-sm">
+                <i data-lucide="smartphone" class="w-4 h-4"></i> apps/mobile (Expo SDK 52)
+              </span>
+              <p class="text-slate-400 leading-relaxed">
+                React Native com Expo Router, autenticação biométrica e captura nativa com câmera para registro da cicatrização pós-operatória.
+              </p>
+            </div>
+
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
+              <span class="font-bold text-cyan-400 flex items-center gap-1.5 font-heading text-sm">
+                <i data-lucide="file-code" class="w-4 h-4"></i> packages/types
+              </span>
+              <p class="text-slate-400 leading-relaxed">
+                22 Interfaces TypeScript completas extraídas do Supabase (Cirurgias, Procedimentos TUSS, Equipe, OPME, Orçamentos e Termos).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 Mapped Views -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+          <h3 class="text-base font-bold text-white font-heading">14 Rotas & Telas Mapeadas do Operus</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-start gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">01</span>
+              <div>
+                <p class="font-bold text-white">Central Cirúrgica (<code class="text-emerald-400 font-mono">/</code>)</p>
+                <p class="text-slate-400">KPIs de faturamento, agenda cirúrgica da semana, alertas pré-op e pós-op.</p>
+              </div>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-start gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">02</span>
+              <div>
+                <p class="font-bold text-white">Agenda & Cirurgias (<code class="text-emerald-400 font-mono">/cirurgias</code>)</p>
+                <p class="text-slate-400">Múltiplos procedimentos TUSS (100/70/50%), equipe cirúrgica e status de OPME.</p>
+              </div>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-start gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">03</span>
+              <div>
+                <p class="font-bold text-white">Prontuário & Pacientes (<code class="text-emerald-400 font-mono">/pacientes</code>)</p>
+                <p class="text-slate-400">Histórico clínico, convênios, contatos de emergência e documentos anexados.</p>
+              </div>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-start gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">04</span>
+              <div>
+                <p class="font-bold text-white">Orçamentos Cirúrgicos (<code class="text-emerald-400 font-mono">/orcamentos</code>)</p>
+                <p class="text-slate-400">Composição de honorários, custos hospitalares, taxas e exportação PDF / WhatsApp.</p>
+              </div>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-start gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">05</span>
+              <div>
+                <p class="font-bold text-white">Portal TCLE Digital (<code class="text-emerald-400 font-mono">/aceite-termo/:token</code>)</p>
+                <p class="text-slate-400">Página pública com aceite legal do paciente, carimbo de IP e geolocalização.</p>
+              </div>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-start gap-3">
+              <span class="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">06</span>
+              <div>
+                <p class="font-bold text-white">Timeline Pós-Operatória (<code class="text-emerald-400 font-mono">/pos-operatorio</code>)</p>
+                <p class="text-slate-400">Acompanhamento D+1, D+7, D+15, escala de dor de 0 a 10 e fotos de cicatriz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View 2: Design System -->
+      <section id="view-design-system" class="tab-view hidden space-y-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+          <div>
+            <h2 class="text-lg font-bold text-white flex items-center gap-2 font-heading">
+              <i data-lucide="palette" class="w-5 h-5 text-[#84CC16]"></i>
+              CitasYa Design System Adaptado para o Operus
+            </h2>
+            <p class="text-xs text-slate-400">Paleta tropical-cirúrgica, bento-grid double-bezel e tipografia refinada</p>
+          </div>
+
+          <!-- Color Tokens -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl bg-[#006948] text-white space-y-1 shadow-md">
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-80">Primary Emerald</span>
+              <p class="text-sm font-extrabold font-mono">#006948</p>
+              <p class="text-[11px] opacity-80">Confiança, Medicina & Autoridade</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#84CC16] text-slate-950 space-y-1 shadow-md">
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-80">Electric Lime</span>
+              <p class="text-sm font-extrabold font-mono">#84CC16</p>
+              <p class="text-[11px] opacity-80">Status Ativo, CTAs & Foco</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#0EA5E9] text-white space-y-1 shadow-md">
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-80">Medical Cyan</span>
+              <p class="text-sm font-extrabold font-mono">#0EA5E9</p>
+              <p class="text-[11px] opacity-80">Precisão Tech & Faturamento</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-700 text-white space-y-1 shadow-md">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Dark Slate</span>
+              <p class="text-sm font-extrabold text-white font-mono">#0F172A</p>
+              <p class="text-[11px] text-slate-400">Superfícies Dark & Contraste</p>
+            </div>
+          </div>
+
+          <!-- Typography Tokens -->
+          <div class="p-5 bg-slate-950 border border-slate-800 rounded-xl space-y-3">
+            <h4 class="text-sm font-bold text-white font-heading">Tipografia & Escala</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div>
+                <span class="text-slate-400 block font-semibold mb-1">Títulos & Headings</span>
+                <p class="font-bold text-white text-base font-heading">Outfit</p>
+                <p class="text-[11px] text-slate-500">SemiBold (600) / Bold (700)</p>
+              </div>
+              <div>
+                <span class="text-slate-400 block font-semibold mb-1">Corpo & Controles</span>
+                <p class="font-medium text-white text-base">Plus Jakarta Sans</p>
+                <p class="text-[11px] text-slate-500">Regular (400) / Medium (500)</p>
+              </div>
+              <div>
+                <span class="text-slate-400 block font-semibold mb-1">Códigos TUSS & Hashes</span>
+                <p class="font-mono text-[#84CC16] text-base">JetBrains Mono</p>
+                <p class="text-[11px] text-slate-500">Precisão tabular</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View 3: Prompts -->
+      <section id="view-prompts" class="tab-view hidden space-y-6">
+        <div class="space-y-4">
+          <!-- Prompt Card 1 -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <h3 class="text-sm font-bold text-white font-heading">1. Logo Principal & Ícone Vetorial SVG</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Midjourney v6.1 / Flux.1 Pro / Ideogram 2</span>
+              </div>
+              <button onclick="copyPrompt('p1', this)" class="flex items-center gap-1.5 bg-[#006948] hover:bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-xs transition cursor-pointer">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copiar Prompt</span>
+              </button>
+            </div>
+            <div id="p1" class="p-4 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed select-all">/imagine prompt: Minimalist surgical technology logo mark for "OPERUS", featuring an ultra-sleek geometric medical cross fused with a precision circular surgical lens ring, clean vector design, emerald green (#006948) and electric lime (#84CC16) accents on pure dark obsidian background (#090D16), Apple Pro design aesthetic, mathematically balanced, Figma icon style, svg flat vector, high contrast, 8k --ar 1:1 --v 6.1 --style raw</div>
+          </div>
+
+          <!-- Prompt Card 2 -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <h3 class="text-sm font-bold text-white font-heading">2. Ícone 3D de Luxo para App (iOS / Android Squircle)</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Midjourney v6.1 / Octane Render</span>
+              </div>
+              <button onclick="copyPrompt('p2', this)" class="flex items-center gap-1.5 bg-[#006948] hover:bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-xs transition cursor-pointer">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copiar Prompt</span>
+              </button>
+            </div>
+            <div id="p2" class="p-4 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed select-all">/imagine prompt: Premium 3D square app icon for "Operus Surgical Suite", rounded squircle iOS style, frosted glass and brushed dark titanium material, glowing neon emerald green medical cross embossed in the center with subtle cyan refractive edge lighting, studio lighting, octane render, Ray Tracing, 8k resolution, minimalist hyper-realistic, luxury tech branding --ar 1:1 --v 6.1</div>
+          </div>
+
+          <!-- Prompt Card 3 -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <h3 class="text-sm font-bold text-white font-heading">3. Banner Hero para Website & Landing Page (16:9)</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Midjourney v6.1 / Flux.1 Pro</span>
+              </div>
+              <button onclick="copyPrompt('p3', this)" class="flex items-center gap-1.5 bg-[#006948] hover:bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-xs transition cursor-pointer">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copiar Prompt</span>
+              </button>
+            </div>
+            <div id="p3" class="p-4 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed select-all">/imagine prompt: Wide cinematic shot of a modern minimalist surgical consultation suite, a confident surgeon in tailored surgical scrubs holding a sleek glass tablet displaying a glowing emerald and slate medical dashboard with surgical schedules and charts, high-end private hospital background with subtle ambient cyan and warm lighting, depth of field, Hasselblad photography, clean architectural lines, ultra-realistic, 8k --ar 16:9 --v 6.1 --style raw</div>
+          </div>
+
+          <!-- Prompt Card 4 -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <h3 class="text-sm font-bold text-white font-heading">4. Banner LinkedIn B2B Thought Leadership (1200x627)</h3>
+                <span class="text-[11px] text-emerald-400 font-semibold">Ideogram 2 / Midjourney v6.1</span>
+              </div>
+              <button onclick="copyPrompt('p4', this)" class="flex items-center gap-1.5 bg-[#006948] hover:bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-xs transition cursor-pointer">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copiar Prompt</span>
+              </button>
+            </div>
+            <div id="p4" class="p-4 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed select-all">/imagine prompt: Sleek professional LinkedIn banner for "Operus Surgical Suite", dark slate (#0F172A) textured background with glowing geometric data nodes in emerald (#006948) and electric lime, floating surgical KPI cards showing revenue growth and zero glosas, subtle typography "Precision Surgical Operating System", ultra-clean corporate tech aesthetic --ar 1200:627 --v 6.1</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View 4: Branding -->
+      <section id="view-branding" class="tab-view hidden space-y-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2 font-heading">
+            <i data-lucide="globe" class="w-5 h-5 text-cyan-400"></i>
+            Estratégia de Conteúdo & Roteiro de Carrossel Instagram (1080x1350)
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs pt-2">
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1.5">
+              <span class="text-[10px] uppercase font-bold text-[#84CC16]">01. O Gancho</span>
+              <h4 class="font-bold text-white text-sm font-heading">Adeus WhatsApp</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Por que cirurgiões de ponta abandonaram grupos informais de mensagem na rotina cirúrgica?</p>
+            </div>
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1.5">
+              <span class="text-[10px] uppercase font-bold text-amber-400">02. A Dor Real</span>
+              <h4 class="font-bold text-white text-sm font-heading">Custo Oculto</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Glosas de convênio, atrasos de OPME e termos de consentimento em papel custam até 30% da receita.</p>
+            </div>
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1.5">
+              <span class="text-[10px] uppercase font-bold text-emerald-400">03. A Solução</span>
+              <h4 class="font-bold text-white text-sm font-heading">Central Única</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Operus: Do agendamento com equipe à assinatura digital de TCLE em menos de 1 minuto.</p>
+            </div>
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1.5">
+              <span class="text-[10px] uppercase font-bold text-cyan-400">04. Governança</span>
+              <h4 class="font-bold text-white text-sm font-heading">Regras TUSS</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Cálculo de via de acesso (100/70/50%) e repasses automáticos e auditáveis para os auxiliares.</p>
+            </div>
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1.5">
+              <span class="text-[10px] uppercase font-bold text-[#84CC16]">05. Conversão</span>
+              <h4 class="font-bold text-white text-sm font-heading">CTA Final</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Modernize sua prática cirúrgica hoje mesmo. Acesse operus.app.br.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 p-6 text-center text-xs text-slate-500">
+      Operus Surgical Suite • Master Blueprint Vault & AI Prompting Hub • ClubeMkt
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    function handleAuth(e) {
+      e.preventDefault();
+      const pass = document.getElementById('passInput').value;
+      if (pass === 'operus2026' || pass === 'clube2026' || pass === 'admin') {
+        document.getElementById('authGate').classList.add('hidden');
+        document.getElementById('appContent').classList.remove('hidden');
+        lucide.createIcons();
+      } else {
+        document.getElementById('errorMsg').classList.remove('hidden');
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('view-' + tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-[#006948]', 'text-white');
+        btn.classList.add('text-slate-400');
+      });
+
+      const activeBtn = document.getElementById('tab-' + tabId);
+      activeBtn.classList.remove('text-slate-400');
+      activeBtn.classList.add('bg-[#006948]', 'text-white');
+      lucide.createIcons();
+    }
+
+    function copyPrompt(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5 text-[#84CC16]"></i><span>Copiado!</span>';
+        lucide.createIcons();
+        setTimeout(() => {
+          btn.innerHTML = original;
+          lucide.createIcons();
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
