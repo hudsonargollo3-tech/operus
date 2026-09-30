@@ -5,7 +5,7 @@
 **Operus** is the enterprise surgical intelligence operating system crafted specifically for high-volume surgeons, surgical teams, and private clinics.
 
 Unlike generic hospital ERPs or first-aid apps, Operus is engineered around surgical precision:
-- **Core Symbol:** The **Surgical Aperture & Scalpel "O"** — a geometric fusion of an open endoscopic circular lens with a central micro-scalpel axis rotated at 15°, symbolizing pinpoint surgical accuracy and clarity.
+- **Primary Monogram Symbol:** **The OP Interlocking Scalpel Ribbon** — A central vertical precision scalpel (pointed blade, hexagonal core, structural grip) interlaced with the monogram letters **"O"** and **"P"** through a continuous geometric ribbon / vascular loop.
 - **Brand Archetype:** *The Master Surgeon + High-Tech Enterprise* (Linear meets Da Vinci Surgical Systems & Apple Pro).
 - **Tone of Voice:** Authoritative, clinical, streamlined, whisper-luxury, zero medical clutter.
 
@@ -13,7 +13,7 @@ Unlike generic hospital ERPs or first-aid apps, Operus is engineered around surg
 
 ## 2. Authentic Color Palette & Design Tokens
 
-Extracted directly from the original Operus platform architecture and refined for ultra-high-end UI surfaces:
+Extracted directly from the original Operus platform architecture:
 
 ```css
 :root {
@@ -43,41 +43,54 @@ Extracted directly from the original Operus platform architecture and refined fo
 
 ---
 
-## 3. Recreated Master AI Image Prompts (Midjourney v6.1 / Flux.1 Pro / Ideogram 2)
+## 3. "OP Interlocking Scalpel" — 3D Styles & Master Prompts
 
-### 3.1 Primary Brand Logo & SVG Vector Mark
+### 3.1 Style 1: Frosted Sapphire Glass & Brushed Titanium (Linear / Apple Pro Luxury)
+*Translucent, refractive floating glass ribbons with inner blue caustics, interlocking around a central brushed titanium scalpel.*
 ```text
-/imagine prompt: Ultra-minimalist luxury surgical tech logo mark for "OPERUS", featuring a modern geometric open circular aperture forming an elegant "O" with a central precision surgical scalpel node rotated at 15 degrees, deep cobalt blue (#1B58D6) and electric royal sapphire (#2766E6) on a dark slate background (#090D16), Apple Pro Design aesthetic, mathematically precise lines, pure flat vector, Figma UI icon style, crisp high contrast, 8k resolution, no gradients, no crosshairs, luxury enterprise software --ar 1:1 --v 6.1 --style raw
+/imagine prompt: Ultra-luxury 3D emblem for "Operus Surgical Suite", featuring an interlocking monogram with letters "O" and "P" woven around a central vertical surgical scalpel with a hexagonal aperture joint. Made of frosted sapphire glass with vibrant cobalt blue (#1B58D6) inner refraction and brushed dark titanium edges. Floating over an obsidian slate background (#090D16), volumetric soft studio lighting, caustic glass reflections, Octane render, Ray Tracing, 8k resolution, premium B2B medical technology aesthetic --ar 1:1 --v 6.1 --style raw
 ```
 
-### 3.2 3D Luxury App Squircle Icon (iOS / macOS / Android Pro)
+### 3.2 Style 2: Matte Ceramic & Anodized Cobalt Titanium (Clean Clinical Precision)
+*Satin-finish medical ceramic intertwined with precision anodized royal blue titanium, evoking Swiss surgical instruments.*
 ```text
-/imagine prompt: Luxury 3D square app icon for "Operus Surgical Suite", rounded iOS squircle shape, brushed dark titanium surface with frosted sapphire glass overlay, glowing electric cobalt blue (#2766E6) surgical aperture and scalpel mark embossed in the center, subtle cyan edge refraction, volumetric soft studio lighting, Octane render, Ray Tracing, 8k resolution, premium B2B medical SaaS aesthetic --ar 1:1 --v 6.1
+/imagine prompt: Precision 3D icon for "Operus", showing a vertical surgical scalpel knife intersecting with a continuous ribbon loop forming the monogram letters "O" and "P". Constructed from matte white surgical ceramic and anodized electric cobalt blue (#2766E6) titanium with beveled edges and soft ambient shadows. Minimalist dark studio backdrop, crisp macro focus, high-end industrial design, clean geometry, 8k --ar 1:1 --v 6.1
 ```
 
-### 3.3 Website Hero Banner: The Modern Surgical Suite (16:9 Desktop)
+### 3.3 Style 3: Monolithic Holographic Obsidian (Cyber-Surgical Intelligence)
+*Dark polished obsidian structure with glowing internal blue laser waveguides and subtle cyan edge highlights.*
+```text
+/imagine prompt: High-tech 3D monolithic logo mark for "Operus", vertical surgical scalpel integrated with an interlocking "O" and "P" ribbon lattice. Polished black obsidian material with glowing electric cobalt blue (#1B58D6) neon laser channels running through the ribbon grooves, subtle cyan edge lighting, floating above a dark slate platform with soft reflections, futuristic surgical SaaS, Cinema 4D, Redshift render, 8k --ar 1:1 --v 6.1
+```
+
+### 3.4 Style 4: 3D Squircle iOS/Android App Icon (Multi-Layered Depth)
+*Elevated 3D badge with double-bezel depth, layered shadows, and tactile feel for app store and home screens.*
+```text
+/imagine prompt: Premium 3D iOS squircle app icon for "Operus Surgical Suite", rounded square dark slate (#0F172A) badge with a subtle metallic rim. Inside, a floating 3D emblem of an interlocking "O" and "P" continuous ribbon woven through a central surgical scalpel blade in glowing cobalt blue (#2766E6) and sapphire (#1646BB) with realistic drop shadows and ambient occlusion, studio render, 8k --ar 1:1 --v 6.1
+```
+
+### 3.5 Style 5: Flat Minimalist Master Vector (SVG / Brand Guide)
+*Pure 2D vector for web headers, favicons, and official brand assets.*
+```text
+/imagine prompt: Flat vector logo mark for "OPERUS", minimalist geometric surgical scalpel oriented vertically in the center, interlocking with a stylized continuous ribbon forming the letters "O" on the left and "P" on the right, uniform line weight, subtle layered overlap shadows, electric cobalt blue (#1B58D6) on dark obsidian (#090D16), pure vector, Figma icon, Apple design system, 8k --ar 1:1 --v 6.1 --style raw
+```
+
+---
+
+## 4. Marketing & Social Assets (Surgical Niche)
+
+### 4.1 Website Hero Banner: The Modern Surgical Suite (16:9 Desktop)
 ```text
 /imagine prompt: Cinematic wide shot of a prestigious private hospital surgical theater and consultation suite, an experienced surgeon in tailored dark navy scrubs looking at an ultra-thin glass tablet displaying a glowing cobalt blue (#1B58D6) and white surgical scheduling dashboard, ambient soft medical lighting with subtle sapphire blue reflections on polished concrete and stainless steel, shallow depth of field, Hasselblad medium format photography, clean architectural lines, ultra-realistic 8k --ar 16:9 --v 6.1 --style raw
 ```
 
-### 3.4 Feature Highlight: Digital TCLE & Touch Signature
-```text
-/imagine prompt: Close-up macro studio photography of a sleek smartphone resting on a minimalist walnut medical desk, displaying the Operus dark-mode digital surgical consent form (TCLE) with a clean digital signature and verification badge in vibrant cobalt blue (#1B58D6), soft natural window light, clinical luxury, ultra-sharp detail, 8k --ar 16:9 --v 6.1
-```
-
-### 3.5 Feature Highlight: Multi-Procedure TUSS & OPME Management
-```text
-/imagine prompt: Ultra-sleek floating glass UI cards showing surgical procedure timelines, TUSS codes, and OPME laser fiber tracking, rendered in deep cobalt blue (#1B58D6) and slate glass with micro-typography, dark studio background with subtle medical laser reflections, precision UI design, 8k resolution --ar 16:9 --v 6.1
-```
-
-### 3.6 LinkedIn B2B Thought Leadership Banner (1200x627)
+### 4.2 LinkedIn B2B Thought Leadership Banner (1200x627)
 ```text
 /imagine prompt: High-end LinkedIn banner for "Operus Surgical Intelligence", deep dark slate (#0F172A) textured background with glowing geometric data streams and floating glass surgical KPI widgets in cobalt blue (#1B58D6) and sapphire, minimalist typography reading "Precision Surgical Operating System", ultra-clean luxury enterprise branding --ar 1200:627 --v 6.1
 ```
 
-### 3.7 Instagram 5-Slide Carousel Campaign (1080x1350 — 4:5 Ratio)
+### 4.3 Instagram 5-Slide Carousel Campaign (1080x1350 — 4:5 Ratio)
 - **Slide 1 (Hook):** "Por que cirurgiões de alta performance abandonaram o WhatsApp na rotina cirúrgica?"
-  - *Visual:* Minimalist dark slate card with a glowing blue surgical badge replacing fragmented chat bubbles.
 - **Slide 2 (The Hidden Cost):** "Glosas de convênio, falha de entrega de OPME e termos de papel perdidos custam até 30% dos honorários da equipe."
 - **Slide 3 (The Solution):** "Operus: Uma central cirúrgica única — da agenda com a equipe ao aceite digital de TCLE em 30 segundos."
 - **Slide 4 (Precision Rules):** "Cálculo automático de via de acesso TUSS (100% / 70% / 50%) e divisão transparente de honorários de auxiliares e anestesistas."

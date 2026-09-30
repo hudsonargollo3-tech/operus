@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Operus Surgical Suite — Architecture, Brand & Prompts</title>
+  <title>Operus Surgical Suite — Architecture, Brand & 3D Prompts</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,6 @@
     body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-tap-highlight-color: transparent; }
     h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
     code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
-    /* Hide scrollbar for clean horizontal tabs */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
@@ -22,14 +21,11 @@
 
   <!-- Password Gate -->
   <div id="authGate" class="fixed inset-0 z-50 flex items-center justify-center bg-[#090D16] p-4 sm:p-6">
-    <!-- Ambient Radial Glow -->
     <div class="absolute w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-gradient-to-tr from-[#1646BB]/40 via-[#2766E6]/25 to-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
     
     <div class="w-full max-w-sm sm:max-w-md bg-slate-900/95 border border-slate-800/90 p-6 sm:p-8 rounded-3xl shadow-2xl backdrop-blur-xl relative z-10 space-y-6">
-      <!-- Brand Header -->
       <div class="text-center space-y-3">
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2766E6] to-[#1646BB] border border-blue-400/30 text-white shadow-xl shadow-blue-900/30">
-          <!-- Authentic Operus SVG Mark -->
           <svg class="w-9 h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g transform="rotate(15 20 20)">
               <path d="M14.2 14.6 a8.6 8.6 0 1 0 11.6 0" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
@@ -43,7 +39,7 @@
         </div>
         <h1 class="text-2xl font-extrabold text-white tracking-tight font-heading">Operus Surgical Suite</h1>
         <p class="text-xs text-slate-400 leading-relaxed">
-          Master Architecture, Original Cobalt Tokens & High-Precision AI Prompting Hub.
+          Arquitetura Técnica, Conceito "OP Scalpel" & Prompts 3D Hi-End.
         </p>
       </div>
 
@@ -74,7 +70,6 @@
     <!-- Header -->
     <header class="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-3.5 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <!-- SVG Logo -->
         <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#2766E6] to-[#1646BB] border border-blue-400/30 flex items-center justify-center shadow-md">
           <svg class="w-5 h-5" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g transform="rotate(15 20 20)">
@@ -98,7 +93,6 @@
         </div>
       </div>
 
-      <!-- Quick Action Badges -->
       <div class="flex items-center gap-2">
         <span class="text-[11px] text-emerald-400 font-semibold bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-1 rounded-lg flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -110,21 +104,21 @@
     <!-- Mobile Scrollable Segmented Navigation Bar -->
     <div class="sticky top-[57px] sm:top-[61px] z-30 bg-slate-950/95 border-b border-slate-800/80 px-4 py-2 backdrop-blur-md">
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar max-w-7xl mx-auto">
-        <button onclick="switchTab('architecture')" id="tab-architecture" class="tab-btn shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1B58D6] text-white shadow-sm transition active:scale-95">
-          <i data-lucide="database" class="w-3.5 h-3.5"></i>
-          <span>Arquitetura & Rotas</span>
+        <button onclick="switchTab('concept-3d')" id="tab-concept-3d" class="tab-btn shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#1B58D6] text-white shadow-sm transition active:scale-95">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Novo Conceito 3D & "OP"</span>
         </button>
         <button onclick="switchTab('brand-identity')" id="tab-brand-identity" class="tab-btn shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-900 transition active:scale-95">
           <i data-lucide="palette" class="w-3.5 h-3.5"></i>
           <span>Cores Originais (#1B58D6)</span>
         </button>
-        <button onclick="switchTab('prompts')" id="tab-prompts" class="tab-btn shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-900 transition active:scale-95">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-          <span>Prompts IA Cirúrgicos</span>
+        <button onclick="switchTab('architecture')" id="tab-architecture" class="tab-btn shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-900 transition active:scale-95">
+          <i data-lucide="database" class="w-3.5 h-3.5"></i>
+          <span>Arquitetura & Rotas</span>
         </button>
         <button onclick="switchTab('carousel')" id="tab-carousel" class="tab-btn shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-900 transition active:scale-95">
           <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-          <span>Social & Banners</span>
+          <span>Banners & Marketing</span>
         </button>
       </div>
     </div>
@@ -132,9 +126,216 @@
     <!-- Main Viewport -->
     <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 space-y-6">
 
-      <!-- View 1: Architecture -->
-      <section id="view-architecture" class="tab-view space-y-5">
-        <!-- Overview Card -->
+      <!-- View: 3D Concepts & OP Ribbon Scalpel -->
+      <section id="view-concept-3d" class="tab-view space-y-5">
+        
+        <!-- Header Highlight -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-heading">
+                <i data-lucide="box" class="w-5 h-5 text-sky-400"></i>
+                Novo Conceito: Monograma "OP" + Bisturi Cirúrgico Central
+              </h2>
+              <p class="text-xs text-slate-400">
+                Evolução geométrica da fita contínua entrelaçando "O" (esquerda) + "P" (direita) com eixo cirúrgico central.
+              </p>
+            </div>
+            <span class="text-xs bg-blue-950 text-sky-300 border border-blue-700/50 px-3 py-1 rounded-lg font-mono">
+              5 Variações 3D
+            </span>
+          </div>
+
+          <!-- Concept Features Breakdown -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
+            <div class="p-3 bg-slate-950 border border-slate-800/80 rounded-xl space-y-1">
+              <p class="font-bold text-sky-400 font-heading">1. Bisturi & Lâmina #15</p>
+              <p class="text-slate-400">Eixo vertical central com corte de bisturi e acoplamento hexagonal de precisão.</p>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800/80 rounded-xl space-y-1">
+              <p class="font-bold text-blue-400 font-heading">2. Monograma "O" & "P"</p>
+              <p class="text-slate-400">Entrelaçamento do "O" (esquerda) e "P" (direita) formando a sigla de Operus.</p>
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800/80 rounded-xl space-y-1">
+              <p class="font-bold text-emerald-400 font-heading">3. Fita Cirúrgica / Laço Vascular</p>
+              <p class="text-slate-400">Geometria contínua com sombras de sobreposição em profundidade 3D real.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Style 1: Frosted Sapphire Glass & Titanium -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-blue-950 text-sky-300 flex items-center justify-center font-bold text-xs">01</span>
+                <h3 class="text-sm font-bold text-white font-heading">Estilo 1: Vidro Safira Fosco & Titânio Escovado</h3>
+              </div>
+              <span class="text-[11px] text-sky-400 font-semibold ml-8">Apple Pro / Linear Tech Luxury (Octane / Midjourney v6.1)</span>
+            </div>
+            <button onclick="copyPrompt('p-style1', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copiar Prompt 3D</span>
+            </button>
+          </div>
+          <div id="p-style1" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Ultra-luxury 3D emblem for "Operus Surgical Suite", featuring an interlocking monogram with letters "O" and "P" woven around a central vertical surgical scalpel with a hexagonal aperture joint. Made of frosted sapphire glass with vibrant cobalt blue (#1B58D6) inner refraction and brushed dark titanium edges. Floating over an obsidian slate background (#090D16), volumetric soft studio lighting, caustic glass reflections, Octane render, Ray Tracing, 8k resolution, premium B2B medical technology aesthetic --ar 1:1 --v 6.1 --style raw</div>
+        </div>
+
+        <!-- 3D Style 2: Matte Ceramic & Anodized Cobalt Titanium -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-blue-950 text-sky-300 flex items-center justify-center font-bold text-xs">02</span>
+                <h3 class="text-sm font-bold text-white font-heading">Estilo 2: Cerâmica Cirúrgica & Titânio Azul Anodizado</h3>
+              </div>
+              <span class="text-[11px] text-sky-400 font-semibold ml-8">Precisão Clínica Suíça & Acabamento Acetinado</span>
+            </div>
+            <button onclick="copyPrompt('p-style2', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copiar Prompt 3D</span>
+            </button>
+          </div>
+          <div id="p-style2" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Precision 3D icon for "Operus", showing a vertical surgical scalpel knife intersecting with a continuous ribbon loop forming the monogram letters "O" and "P". Constructed from matte white surgical ceramic and anodized electric cobalt blue (#2766E6) titanium with beveled edges and soft ambient shadows. Minimalist dark studio backdrop, crisp macro focus, high-end industrial design, clean geometry, 8k --ar 1:1 --v 6.1</div>
+        </div>
+
+        <!-- 3D Style 3: Monolithic Holographic Obsidian -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-blue-950 text-sky-300 flex items-center justify-center font-bold text-xs">03</span>
+                <h3 class="text-sm font-bold text-white font-heading">Estilo 3: Obsidiana Monolítica & Guia de Laser Azul</h3>
+              </div>
+              <span class="text-[11px] text-sky-400 font-semibold ml-8">Inteligência Cirúrgica & Reflexão Hi-Tech (Cinema 4D / Redshift)</span>
+            </div>
+            <button onclick="copyPrompt('p-style3', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copiar Prompt 3D</span>
+            </button>
+          </div>
+          <div id="p-style3" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: High-tech 3D monolithic logo mark for "Operus", vertical surgical scalpel integrated with an interlocking "O" and "P" ribbon lattice. Polished black obsidian material with glowing electric cobalt blue (#1B58D6) neon laser channels running through the ribbon grooves, subtle cyan edge lighting, floating above a dark slate platform with soft reflections, futuristic surgical SaaS, Cinema 4D, Redshift render, 8k --ar 1:1 --v 6.1</div>
+        </div>
+
+        <!-- 3D Style 4: iOS App Squircle Badge -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-blue-950 text-sky-300 flex items-center justify-center font-bold text-xs">04</span>
+                <h3 class="text-sm font-bold text-white font-heading">Estilo 4: Ícone Squircle 3D para App iOS / Android</h3>
+              </div>
+              <span class="text-[11px] text-sky-400 font-semibold ml-8">Multi-Layer Depth & Sombreamento Volumétrico</span>
+            </div>
+            <button onclick="copyPrompt('p-style4', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copiar Prompt 3D</span>
+            </button>
+          </div>
+          <div id="p-style4" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Premium 3D iOS squircle app icon for "Operus Surgical Suite", rounded square dark slate (#0F172A) badge with a subtle metallic rim. Inside, a floating 3D emblem of an interlocking "O" and "P" continuous ribbon woven through a central surgical scalpel blade in glowing cobalt blue (#2766E6) and sapphire (#1646BB) with realistic drop shadows and ambient occlusion, studio render, 8k --ar 1:1 --v 6.1</div>
+        </div>
+
+        <!-- 3D Style 5: 2D Flat Vector Master -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-blue-950 text-sky-300 flex items-center justify-center font-bold text-xs">05</span>
+                <h3 class="text-sm font-bold text-white font-heading">Estilo 5: Vetor 2D Geométrico & Marca Oficial SVG</h3>
+              </div>
+              <span class="text-[11px] text-sky-400 font-semibold ml-8">Linhas Matemáticas Limpas & Sem Ruído</span>
+            </div>
+            <button onclick="copyPrompt('p-style5', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copiar Prompt 2D</span>
+            </button>
+          </div>
+          <div id="p-style5" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Flat vector logo mark for "OPERUS", minimalist geometric surgical scalpel oriented vertically in the center, interlocking with a stylized continuous ribbon forming the letters "O" on the left and "P" on the right, uniform line weight, subtle layered overlap shadows, electric cobalt blue (#1B58D6) on dark obsidian (#090D16), pure vector, Figma icon, Apple design system, 8k --ar 1:1 --v 6.1 --style raw</div>
+        </div>
+
+      </section>
+
+      <!-- View: Brand Identity (Authentic Original Colors) -->
+      <section id="view-brand-identity" class="tab-view hidden space-y-5">
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-6">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-heading">
+              <i data-lucide="palette" class="w-5 h-5 text-sky-400"></i>
+              Identidade Visual & Cores Oficiais do Operus
+            </h2>
+            <p class="text-xs text-slate-400">
+              Paleta oficial do app original (<code class="text-sky-300 font-mono">operus.app.br</code>) — Azul Cobalto & Safira Real.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            <div class="p-4 rounded-2xl bg-[#1B58D6] text-white space-y-1.5 shadow-lg shadow-blue-900/30">
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-85">Primary Core</span>
+              <p class="text-base font-extrabold font-mono">#1B58D6</p>
+              <p class="text-[11px] opacity-90">Azul Operus Oficial</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#2766E6] text-white space-y-1.5 shadow-lg shadow-blue-800/30">
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-85">Electric Cobalt</span>
+              <p class="text-base font-extrabold font-mono">#2766E6</p>
+              <p class="text-[11px] opacity-90">Topo do Gradiente & Hover</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#1646BB] text-white space-y-1.5 shadow-lg shadow-blue-950/40">
+              <span class="text-[10px] uppercase font-bold tracking-wider opacity-85">Royal Sapphire</span>
+              <p class="text-base font-extrabold font-mono">#1646BB</p>
+              <p class="text-[11px] opacity-90">Base do Gradiente & Bordas</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#0F172A] border border-slate-700 text-white space-y-1.5 shadow-lg">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Dark Slate</span>
+              <p class="text-base font-extrabold text-white font-mono">#0F172A</p>
+              <p class="text-[11px] text-slate-400">Superfícies & Contraste</p>
+            </div>
+          </div>
+
+          <!-- Original Logo Box -->
+          <div class="p-5 bg-slate-950 border border-slate-800 rounded-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <h4 class="text-sm font-bold text-white font-heading">Marca Vetorial Original SVG</h4>
+                <p class="text-xs text-slate-400">Abertura Cirúrgica & Eixo de Bisturi (15°)</p>
+              </div>
+              <button onclick="copyRawSvg()" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold transition active:scale-95 cursor-pointer">
+                <i data-lucide="code" class="w-3.5 h-3.5"></i>
+                <span id="svgCopyText">Copiar SVG</span>
+              </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-6 pt-2">
+              <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-[#2766E6] to-[#1646BB] border border-blue-400/40 shadow-2xl flex items-center justify-center shrink-0">
+                <svg class="w-14 h-14" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g transform="rotate(15 20 20)">
+                    <path d="M14.2 14.6 a8.6 8.6 0 1 0 11.6 0" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+                    <g fill="#ffffff">
+                      <rect x="18.9" y="10.6" width="2.2" height="5.4" rx="0.5"/>
+                      <rect x="18.7" y="15.8" width="2.6" height="0.8"/>
+                      <path d="M18.7 16.6 L21.3 16.6 L21.3 19.4 Q21.3 21.2 20 21.2 Q18.7 21.0 18.7 19.4 Z"/>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+                <p>
+                  • <strong>Abertura "O":</strong> Lente endoscópica / ótica cirúrgica de alta definição.
+                </p>
+                <p>
+                  • <strong>Eixo do Bisturi:</strong> Instrumento de corte cirúrgico com precisão micrométrica.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Architecture -->
+      <section id="view-architecture" class="tab-view hidden space-y-5">
         <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
             <div>
@@ -149,7 +350,6 @@
             </span>
           </div>
 
-          <!-- Apps & Packages Grid -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
             <div class="p-4 bg-slate-950/80 border border-slate-800/80 rounded-xl space-y-1.5">
               <span class="font-bold text-sky-400 flex items-center gap-1.5 font-heading text-sm">
@@ -180,7 +380,6 @@
           </div>
         </div>
 
-        <!-- 14 Mapped Routes -->
         <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
           <div class="flex items-center justify-between border-b border-slate-800 pb-3">
             <h3 class="text-sm sm:text-base font-bold text-white font-heading">14 Módulos Cirúrgicos Mapeados</h3>
@@ -239,180 +438,7 @@
         </div>
       </section>
 
-      <!-- View 2: Brand Identity (Authentic Original Colors) -->
-      <section id="view-brand-identity" class="tab-view hidden space-y-5">
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-6">
-          <div>
-            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-heading">
-              <i data-lucide="palette" class="w-5 h-5 text-sky-400"></i>
-              Identidade Visual & Cores Oficiais do Operus
-            </h2>
-            <p class="text-xs text-slate-400">
-              Paleta oficial do app original (<code class="text-sky-300 font-mono">operus.app.br</code>) — Azul Cobalto & Safira Real.
-            </p>
-          </div>
-
-          <!-- Official Color Tokens Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
-            <div class="p-4 rounded-2xl bg-[#1B58D6] text-white space-y-1.5 shadow-lg shadow-blue-900/30">
-              <span class="text-[10px] uppercase font-bold tracking-wider opacity-85">Primary Core</span>
-              <p class="text-base font-extrabold font-mono">#1B58D6</p>
-              <p class="text-[11px] opacity-90">Azul Operus Oficial</p>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-[#2766E6] text-white space-y-1.5 shadow-lg shadow-blue-800/30">
-              <span class="text-[10px] uppercase font-bold tracking-wider opacity-85">Electric Cobalt</span>
-              <p class="text-base font-extrabold font-mono">#2766E6</p>
-              <p class="text-[11px] opacity-90">Topo do Gradiente & Hover</p>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-[#1646BB] text-white space-y-1.5 shadow-lg shadow-blue-950/40">
-              <span class="text-[10px] uppercase font-bold tracking-wider opacity-85">Royal Sapphire</span>
-              <p class="text-base font-extrabold font-mono">#1646BB</p>
-              <p class="text-[11px] opacity-90">Base do Gradiente & Bordas</p>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-[#0F172A] border border-slate-700 text-white space-y-1.5 shadow-lg">
-              <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Dark Slate</span>
-              <p class="text-base font-extrabold text-white font-mono">#0F172A</p>
-              <p class="text-[11px] text-slate-400">Superfícies & Contraste</p>
-            </div>
-          </div>
-
-          <!-- Authentic Logo & Symbol Breakdown -->
-          <div class="p-5 bg-slate-950 border border-slate-800 rounded-2xl space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div>
-                <h4 class="text-sm font-bold text-white font-heading">Símbolo & Marca Vetorial Oficial</h4>
-                <p class="text-xs text-slate-400">Abertura Cirúrgica & Eixo de Bisturi (Micro-rotacionado a 15°)</p>
-              </div>
-              <button onclick="copyRawSvg()" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-xs font-semibold transition active:scale-95 cursor-pointer">
-                <i data-lucide="code" class="w-3.5 h-3.5"></i>
-                <span id="svgCopyText">Copiar SVG</span>
-              </button>
-            </div>
-
-            <div class="flex flex-col sm:flex-row items-center gap-6 pt-2">
-              <!-- Live Scaled SVG Box -->
-              <div class="w-28 h-28 rounded-3xl bg-gradient-to-br from-[#2766E6] to-[#1646BB] border border-blue-400/40 shadow-2xl flex items-center justify-center shrink-0">
-                <svg class="w-16 h-16" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="rotate(15 20 20)">
-                    <path d="M14.2 14.6 a8.6 8.6 0 1 0 11.6 0" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
-                    <g fill="#ffffff">
-                      <rect x="18.9" y="10.6" width="2.2" height="5.4" rx="0.5"/>
-                      <rect x="18.7" y="15.8" width="2.6" height="0.8"/>
-                      <path d="M18.7 16.6 L21.3 16.6 L21.3 19.4 Q21.3 21.2 20 21.2 Q18.7 21.0 18.7 19.4 Z"/>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-
-              <!-- Symbol Story -->
-              <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
-                <p>
-                  • <strong>Abertura "O" de Operus:</strong> Representa o campo de visão de uma lente endoscópica / ótica cirúrgica de alta definição.
-                </p>
-                <p>
-                  • <strong>Eixo do Bisturi Central:</strong> O nó vertical central representa o instrumento de corte cirúrgico com precisão micrométrica.
-                </p>
-                <p>
-                  • <strong>Gradiente Cobalto:</strong> Transmite autoridade médica incomparável, clareza cirúrgica e sofisticação de produto enterprise.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- View 3: AI Prompts (Recreated Luxury Niche Prompts) -->
-      <section id="view-prompts" class="tab-view hidden space-y-4">
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-2">
-          <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-heading">
-            <i data-lucide="sparkles" class="w-5 h-5 text-sky-400"></i>
-            Prompts IA Master — Niche Cirúrgico Premium
-          </h2>
-          <p class="text-xs text-slate-400">
-            Formulados para Midjourney v6.1, Flux.1 Pro e Ideogram 2 com estética médica de elite. Toque no botão para copiar.
-          </p>
-        </div>
-
-        <!-- Prompt 1: Master Logo -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-            <div>
-              <h3 class="text-sm font-bold text-white font-heading">1. Logo Principal & Ícone Vetorial SVG</h3>
-              <span class="text-[11px] text-sky-400 font-semibold">Midjourney v6.1 / Flux.1 / Ideogram 2</span>
-            </div>
-            <button onclick="copyPrompt('p1', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              <span>Copiar Prompt</span>
-            </button>
-          </div>
-          <div id="p1" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Ultra-minimalist luxury surgical tech logo mark for "OPERUS", featuring a modern geometric open circular aperture forming an elegant "O" with a central precision surgical scalpel node rotated at 15 degrees, deep cobalt blue (#1B58D6) and electric royal sapphire (#2766E6) on a dark slate background (#090D16), Apple Pro Design aesthetic, mathematically precise lines, pure flat vector, Figma UI icon style, crisp high contrast, 8k resolution, no gradients, no crosshairs, luxury enterprise software --ar 1:1 --v 6.1 --style raw</div>
-        </div>
-
-        <!-- Prompt 2: 3D Squircle Icon -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-            <div>
-              <h3 class="text-sm font-bold text-white font-heading">2. Ícone 3D Squircle de Luxo (iOS / macOS / Android)</h3>
-              <span class="text-[11px] text-sky-400 font-semibold">Midjourney v6.1 / Octane Render</span>
-            </div>
-            <button onclick="copyPrompt('p2', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              <span>Copiar Prompt</span>
-            </button>
-          </div>
-          <div id="p2" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Luxury 3D square app icon for "Operus Surgical Suite", rounded iOS squircle shape, brushed dark titanium surface with frosted sapphire glass overlay, glowing electric cobalt blue (#2766E6) surgical aperture and scalpel mark embossed in the center, subtle cyan edge refraction, volumetric soft studio lighting, Octane render, Ray Tracing, 8k resolution, premium B2B medical SaaS aesthetic --ar 1:1 --v 6.1</div>
-        </div>
-
-        <!-- Prompt 3: Website Hero Banner -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-            <div>
-              <h3 class="text-sm font-bold text-white font-heading">3. Banner Hero para Website (16:9 Desktop)</h3>
-              <span class="text-[11px] text-sky-400 font-semibold">Midjourney v6.1 / Flux.1 Pro</span>
-            </div>
-            <button onclick="copyPrompt('p3', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              <span>Copiar Prompt</span>
-            </button>
-          </div>
-          <div id="p3" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Cinematic wide shot of a prestigious private hospital surgical theater and consultation suite, an experienced surgeon in tailored dark navy scrubs looking at an ultra-thin glass tablet displaying a glowing cobalt blue (#1B58D6) and white surgical scheduling dashboard, ambient soft medical lighting with subtle sapphire blue reflections on polished concrete and stainless steel, shallow depth of field, Hasselblad medium format photography, clean architectural lines, ultra-realistic 8k --ar 16:9 --v 6.1 --style raw</div>
-        </div>
-
-        <!-- Prompt 4: TCLE Mobile Feature -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-            <div>
-              <h3 class="text-sm font-bold text-white font-heading">4. Assinatura Digital de TCLE & Biometria</h3>
-              <span class="text-[11px] text-sky-400 font-semibold">Midjourney v6.1 / Flux.1 Pro</span>
-            </div>
-            <button onclick="copyPrompt('p4', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              <span>Copiar Prompt</span>
-            </button>
-          </div>
-          <div id="p4" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: Close-up macro studio photography of a sleek smartphone resting on a minimalist walnut medical desk, displaying the Operus dark-mode digital surgical consent form (TCLE) with a clean digital signature and verification badge in vibrant cobalt blue (#1B58D6), soft natural window light, clinical luxury, ultra-sharp detail, 8k --ar 16:9 --v 6.1</div>
-        </div>
-
-        <!-- Prompt 5: LinkedIn Banner -->
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-            <div>
-              <h3 class="text-sm font-bold text-white font-heading">5. Banner LinkedIn B2B Enterprise (1200x627)</h3>
-              <span class="text-[11px] text-sky-400 font-semibold">Ideogram 2 / Midjourney v6.1</span>
-            </div>
-            <button onclick="copyPrompt('p5', this)" class="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md transition active:scale-95 cursor-pointer">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              <span>Copiar Prompt</span>
-            </button>
-          </div>
-          <div id="p5" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300 leading-relaxed select-all overflow-x-auto">/imagine prompt: High-end LinkedIn banner for "Operus Surgical Intelligence", deep dark slate (#0F172A) textured background with glowing geometric data streams and floating glass surgical KPI widgets in cobalt blue (#1B58D6) and sapphire, minimalist typography reading "Precision Surgical Operating System", ultra-clean luxury enterprise branding --ar 1200:627 --v 6.1</div>
-        </div>
-      </section>
-
-      <!-- View 4: Social & Carousel Campaign -->
+      <!-- View: Marketing & Banners -->
       <section id="view-carousel" class="tab-view hidden space-y-5">
         <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
           <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2 font-heading">
