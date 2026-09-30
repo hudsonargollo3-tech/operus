@@ -158,77 +158,136 @@ export default function LandingPage() {
 
       {/* Pricing Matrix */}
       <section id="pricing" className="px-4 sm:px-6 py-16 max-w-6xl mx-auto w-full space-y-8 border-t border-slate-800/80">
-        <div className="text-center space-y-2 max-w-xl mx-auto">
-          <span className="text-xs text-sky-400 font-bold uppercase tracking-wider">Planos Transparentes</span>
+        <div className="text-center space-y-3 max-w-xl mx-auto">
+          <span className="text-xs text-sky-400 font-bold uppercase tracking-wider bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
+            Tabela de Lançamento Oficial
+          </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
-            Escolha o plano ideal para sua prática
+            Planos sob medida para sua rotina cirúrgica
           </h2>
+          <p className="text-xs text-slate-400">
+            Valores promocionais de early-access garantidos para os primeiros 100 cirurgiões.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-          {/* Tier 1 */}
-          <div className="p-6 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-5 flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          {/* Plano 1: Solo Start */}
+          <div className="p-5 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-4 flex flex-col justify-between hover:border-slate-700 transition">
             <div className="space-y-3">
-              <h3 className="text-lg font-bold text-white font-heading">Cirurgião Solo</h3>
-              <p className="text-slate-400">Para cirurgiões com equipe reduzida</p>
-              <div className="pt-2">
-                <span className="text-3xl font-extrabold text-white font-mono">R$ 290</span>
-                <span className="text-slate-400">/mês</span>
+              <div className="flex items-center justify-between">
+                <h3 className="text-base font-bold text-white font-heading">1. Solo Start</h3>
+                <span className="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">Básico</span>
               </div>
-              <ul className="space-y-2 text-slate-300 pt-3 border-t border-slate-800">
-                <li>✓ Até 25 cirurgias por mês</li>
-                <li>✓ TCLE Digital Ilimitado</li>
-                <li>✓ Cálculo TUSS Automático</li>
-                <li>✓ 1 Usuário Cirurgião + 1 Secretária</li>
+              <p className="text-slate-400 text-[11px] leading-relaxed">Para cirurgiões individuais iniciando a digitalização da rotina.</p>
+              
+              <div className="pt-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-2xl font-extrabold text-white font-mono">R$ 39,90</span>
+                  <span className="text-slate-400 text-[11px]">/mês</span>
+                </div>
+                <p className="text-[10px] text-slate-500 line-through">De R$ 59,90 após lançamento</p>
+              </div>
+
+              <ul className="space-y-2 text-slate-300 pt-3 border-t border-slate-800/80 text-[11px]">
+                <li className="flex items-center gap-1.5">✓ <strong>1 Médico + 1 Secretária</strong></li>
+                <li className="flex items-center gap-1.5">✓ Gestão de cirurgias com status</li>
+                <li className="flex items-center gap-1.5">✓ Cadastro e prontuário manual</li>
+                <li className="flex items-center gap-1.5">✓ Timeline da agenda semanal</li>
               </ul>
             </div>
-            <Link href="/cadastro" className="w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block">
-              Escolher Solo
+            <Link href="/cadastro?plano=solo" className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs">
+              Começar Solo
             </Link>
           </div>
 
-          {/* Tier 2: Featured */}
-          <div className="p-6 bg-gradient-to-b from-[#1646BB]/40 to-slate-900 border-2 border-blue-500 rounded-3xl space-y-5 flex flex-col justify-between shadow-2xl relative">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#1B58D6] text-white text-[10px] font-bold uppercase tracking-wider shadow">
-              Mais Popular
-            </span>
+          {/* Plano 2: Duo / Consultório */}
+          <div className="p-5 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-4 flex flex-col justify-between hover:border-slate-700 transition">
             <div className="space-y-3">
-              <h3 className="text-lg font-bold text-white font-heading">Equipe Pro</h3>
-              <p className="text-slate-300">Para grupos e equipes cirúrgicas</p>
-              <div className="pt-2">
-                <span className="text-3xl font-extrabold text-white font-mono">R$ 490</span>
-                <span className="text-slate-400">/mês</span>
+              <div className="flex items-center justify-between">
+                <h3 className="text-base font-bold text-white font-heading">2. Consultório</h3>
+                <span className="text-[10px] text-sky-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800">Financeiro</span>
               </div>
-              <ul className="space-y-2 text-slate-200 pt-3 border-t border-slate-800">
-                <li>✓ Cirurgias ilimitadas</li>
-                <li>✓ Repasse automático de honorários</li>
-                <li>✓ Acesso para auxiliares e anestesistas</li>
-                <li>✓ Rastreamento completo de OPME</li>
-                <li>✓ Suporte prioritário via WhatsApp</li>
+              <p className="text-slate-400 text-[11px] leading-relaxed">Para consultórios com até 3 médicos e orçamentos rápidos.</p>
+              
+              <div className="pt-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-2xl font-extrabold text-white font-mono">R$ 49,90</span>
+                  <span className="text-slate-400 text-[11px]">/mês</span>
+                </div>
+                <p className="text-[10px] text-slate-500 line-through">De R$ 69,90 após lançamento</p>
+              </div>
+
+              <ul className="space-y-2 text-slate-300 pt-3 border-t border-slate-800/80 text-[11px]">
+                <li className="flex items-center gap-1.5">✓ <strong>Até 3 Médicos + 1 Secretária</strong></li>
+                <li className="flex items-center gap-1.5">✓ <strong>Gestão Financeira</strong> de honorários</li>
+                <li className="flex items-center gap-1.5">✓ <strong>Alimentação por Fotos</strong> e exames</li>
+                <li className="flex items-center gap-1.5">✓ <strong>Gerador de Orçamentos</strong> Cirúrgicos</li>
               </ul>
             </div>
-            <Link href="/cadastro" className="w-full py-3 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-center rounded-xl shadow-lg shadow-blue-900/40 transition block">
+            <Link href="/cadastro?plano=consultorio" className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs">
+              Começar Consultório
+            </Link>
+          </div>
+
+          {/* Plano 3: Equipe Pro (Destaque) */}
+          <div className="p-5 bg-gradient-to-b from-[#1646BB]/40 to-slate-900 border-2 border-blue-500 rounded-3xl space-y-4 flex flex-col justify-between shadow-2xl relative">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#1B58D6] text-white text-[9px] font-bold uppercase tracking-wider shadow">
+              Mais Recomendado
+            </span>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-base font-bold text-white font-heading">3. Equipe Pro</h3>
+                <span className="text-[10px] text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">TCLE Digital</span>
+              </div>
+              <p className="text-slate-300 text-[11px] leading-relaxed">Governança completa para equipes cirúrgicas e termos digitais.</p>
+              
+              <div className="pt-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-2xl font-extrabold text-white font-mono">R$ 109,90</span>
+                  <span className="text-slate-400 text-[11px]">/mês</span>
+                </div>
+                <p className="text-[10px] text-slate-400 line-through">De R$ 159,00 após lançamento</p>
+              </div>
+
+              <ul className="space-y-2 text-slate-200 pt-3 border-t border-slate-800 text-[11px]">
+                <li className="flex items-center gap-1.5">✓ <strong>Múltiplos Médicos + Até 3 Secretárias</strong></li>
+                <li className="flex items-center gap-1.5">✓ <strong>Criação de Equipes</strong> (Auxiliares/Anest)</li>
+                <li className="flex items-center gap-1.5">✓ <strong>TCLE Digital</strong> com Assinatura Legal</li>
+                <li className="flex items-center gap-1.5">✓ <strong>Upload de Fotos</strong> e curativos</li>
+                <li className="flex items-center gap-1.5">✓ Auditoria TUSS e Orçamentos</li>
+              </ul>
+            </div>
+            <Link href="/cadastro?plano=equipe" className="w-full py-2.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-center rounded-xl shadow-lg shadow-blue-900/40 transition block text-xs">
               Assinar Equipe Pro
             </Link>
           </div>
 
-          {/* Tier 3 */}
-          <div className="p-6 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-5 flex flex-col justify-between">
+          {/* Plano 4: Clínica Enterprise */}
+          <div className="p-5 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-4 flex flex-col justify-between hover:border-slate-700 transition">
             <div className="space-y-3">
-              <h3 className="text-lg font-bold text-white font-heading">Clínica Enterprise</h3>
-              <p className="text-slate-400">Hospitais dia e clínicas de alta complexidade</p>
-              <div className="pt-2">
-                <span className="text-3xl font-extrabold text-white font-mono">R$ 890</span>
-                <span className="text-slate-400">/mês</span>
+              <div className="flex items-center justify-between">
+                <h3 className="text-base font-bold text-white font-heading">4. Enterprise</h3>
+                <span className="text-[10px] text-purple-300 bg-purple-950 px-2 py-0.5 rounded border border-purple-800">Clínicas</span>
               </div>
-              <ul className="space-y-2 text-slate-300 pt-3 border-t border-slate-800">
-                <li>✓ Multi-tenancy e múltiplos CNPJs</li>
-                <li>✓ Integração direta com ERP Hospitalar</li>
-                <li>✓ API de prontuários & Webhooks</li>
-                <li>✓ Gerente de conta dedicado</li>
+              <p className="text-slate-400 text-[11px] leading-relaxed">Para clínicas de alta complexidade, hospitais dia e múltiplos CNPJs.</p>
+              
+              <div className="pt-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-2xl font-extrabold text-white font-mono">R$ 299,00</span>
+                  <span className="text-slate-400 text-[11px]">/mês</span>
+                </div>
+                <p className="text-[10px] text-slate-500">Ou sob consulta para redes</p>
+              </div>
+
+              <ul className="space-y-2 text-slate-300 pt-3 border-t border-slate-800/80 text-[11px]">
+                <li className="flex items-center gap-1.5">✓ <strong>Médicos & Secretárias Ilimitados</strong></li>
+                <li className="flex items-center gap-1.5">✓ <strong>Multi-Unidades</strong> & Múltiplos CNPJs</li>
+                <li className="flex items-center gap-1.5">✓ <strong>Rastreamento de OPME</strong> avançado</li>
+                <li className="flex items-center gap-1.5">✓ API, Webhooks & Integração ERP</li>
+                <li className="flex items-center gap-1.5">✓ Gerente de Conta Dedicado VIP</li>
               </ul>
             </div>
-            <Link href="/cadastro" className="w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block">
+            <Link href="/cadastro?plano=enterprise" className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs">
               Falar com Consultor
             </Link>
           </div>
