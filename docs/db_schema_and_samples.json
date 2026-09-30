@@ -1,0 +1,472 @@
+{
+  "profiles": {
+    "error": 206,
+    "msg": "[{\"id\":\"442570e5-2387-4e06-924c-a2b025f26d20\",\"full_name\":\"Lais\",\"email\":\"adm.herlonmoura@gmail.com\",\"crm\":null,\"phone\":null,\"avatar_url\":null,\"created_at\":\"2026-05-01T22:41:01.262904+00:00\",\"updated_at\":\"2026-05-01T22:41:01.262904+00:00\",\"logo_url\":null,\"clinica_nome\":null,\"clinica_endereco\":null,\"clinica_telefone\":null}, \n {\"id\":\"cea773c9-521d-46b3-9984-1eade55a77db\",\"full_name\":\"Herlon Moura dos Santos\",\"email\":\"herlonmoura@hotmail.com\",\"crm\":\"23904\",\"phone\":null,\"avatar_url\":null,\"created_at\":\"2026-05-01T22:37:41.532324+00:00\",\"updated_at\":\"2026-05-02T00:36:29.885783+00:00\",\"logo_url\":\"https://xnrdqvxktuwucukohbzm.supabase.co/storage/v1/object/public/logos-medicos/cea773c9-521d-46b3-9984-1eade55a77db/logo-1777682162331.png\",\"clinica_nome\":\"Clap Varizes\",\"clinica_endereco\":null,\"clinica_telefone\":null}, \n {\"id\":\"a60528ef-2712-498b-9ad1-8be948491c07\",\"full_name\":\"Matheus Serapi\u00e3o\",\"email\":\"theu.mendes@gmail.com\",\"crm\":null,\"phone\":null,\"avatar_url\":null,\"created_at\":\"2026-05-14T02:17:17.61882+00:00\",\"updated_at\":\"2026-05-14T02:17:17.61882+00:00\",\"logo_url\":null,\"clinica_nome\":null,\"clinica_endereco\":null,\"clinica_telefone\":null}, \n {\"id\":\"1d390084-9402-474e-bc0a-d7787c5d9fbd\",\"full_name\":\"Lelivaldo Britto\",\"email\":\"lelivaldo.britto@gmail.com\",\"crm\":null,\"phone\":null,\"avatar_url\":null,\"created_at\":\"2026-05-14T11:28:51.23131+00:00\",\"updated_at\":\"2026-05-14T11:28:51.23131+00:00\",\"logo_url\":null,\"clinica_nome\":null,\"clinica_endereco\":null,\"clinica_telefone\":null}, \n {\"id\":\"ea9fe879-f724-4988-bc2e-344e9ff547f4\",\"full_name\":\"Davi Silva\",\"email\":\"davi.sx.md@gmail.com\",\"crm\":null,\"phone\":null,\"avatar_url\":null,\"created_at\":\"2026-05-15T14:27:43.721294+00:00\",\"updated_at\":\"2026-05-15T14:27:43.721294+00:00\",\"logo_url\":null,\"clinica_nome\":null,\"clinica_endereco\":null,\"clinica_telefone\":null}]"
+  },
+  "user_roles": {
+    "count": "5",
+    "columns": [
+      "id",
+      "user_id",
+      "role",
+      "created_at"
+    ],
+    "sample_record": {
+      "id": "be26abe5-5997-48ad-b4a4-1a5db4958e02",
+      "user_id": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "role": "admin",
+      "created_at": "2026-05-01T22:37:41.532324+00:00"
+    }
+  },
+  "pacientes": {
+    "count": "2",
+    "columns": [
+      "id",
+      "nome_completo",
+      "cpf",
+      "rg",
+      "data_nascimento",
+      "sexo",
+      "telefone",
+      "email",
+      "endereco",
+      "cidade",
+      "estado",
+      "cep",
+      "convenio_id",
+      "numero_carteirinha",
+      "observacoes_clinicas",
+      "alergias",
+      "medicamentos_uso",
+      "created_by",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "6d25a66d-e029-4b52-b267-d9471046ab78",
+      "nome_completo": "Luiza de Lima Tavares",
+      "cpf": "02410415547",
+      "rg": "1",
+      "data_nascimento": "1986-02-26",
+      "sexo": "F",
+      "telefone": "71999372907",
+      "email": null,
+      "endereco": null,
+      "cidade": null,
+      "estado": null,
+      "cep": null,
+      "convenio_id": "ccdca851-c304-442b-8276-fc5d9d28a789",
+      "numero_carteirinha": null,
+      "observacoes_clinicas": null,
+      "alergias": null,
+      "medicamentos_uso": null,
+      "created_by": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "created_at": "2026-05-01T23:42:59.409092+00:00",
+      "updated_at": "2026-05-02T00:17:46.031797+00:00"
+    }
+  },
+  "cirurgias": {
+    "count": "4",
+    "columns": [
+      "id",
+      "paciente_id",
+      "convenio_id",
+      "data_agendada",
+      "data_realizada",
+      "hospital",
+      "sala",
+      "status",
+      "diagnostico",
+      "observacoes",
+      "is_estetica",
+      "created_by",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "4024d51c-5a7a-40e7-a5f1-72bb0905d2ca",
+      "paciente_id": "6d25a66d-e029-4b52-b267-d9471046ab78",
+      "convenio_id": "ccdca851-c304-442b-8276-fc5d9d28a789",
+      "data_agendada": "2026-06-30T15:00:00+00:00",
+      "data_realizada": null,
+      "hospital": "Itaigara memorial",
+      "sala": null,
+      "status": "agendada",
+      "diagnostico": "Varizes",
+      "observacoes": "Endolaser de safena ",
+      "is_estetica": false,
+      "created_by": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "created_at": "2026-05-01T23:55:42.190807+00:00",
+      "updated_at": "2026-05-01T23:55:42.190807+00:00"
+    }
+  },
+  "cirurgia_equipe": {
+    "count": "4",
+    "columns": [
+      "id",
+      "cirurgia_id",
+      "user_id",
+      "papel",
+      "tipo_pagamento",
+      "percentual",
+      "valor_fixo",
+      "observacao",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "915bb350-69e4-4062-ad8a-00f7c666aa9c",
+      "cirurgia_id": "4024d51c-5a7a-40e7-a5f1-72bb0905d2ca",
+      "user_id": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "papel": "principal",
+      "tipo_pagamento": null,
+      "percentual": null,
+      "valor_fixo": null,
+      "observacao": null,
+      "created_at": "2026-05-01T23:55:42.46613+00:00",
+      "updated_at": "2026-05-01T23:55:42.46613+00:00"
+    }
+  },
+  "cirurgia_procedimentos": {
+    "count": "3",
+    "columns": [
+      "id",
+      "cirurgia_id",
+      "procedimento_id",
+      "valor",
+      "quantidade",
+      "observacao",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "99c53962-d4b0-4fda-8e86-973b822ad9fe",
+      "cirurgia_id": "4024d51c-5a7a-40e7-a5f1-72bb0905d2ca",
+      "procedimento_id": "1ffc0a6f-9ee1-4469-989c-ebb436466c10",
+      "valor": null,
+      "quantidade": 1,
+      "observacao": null,
+      "created_at": "2026-05-01T23:55:42.763386+00:00",
+      "updated_at": "2026-05-01T23:55:42.763386+00:00"
+    }
+  },
+  "convenios": {
+    "count": "2",
+    "columns": [
+      "id",
+      "nome",
+      "codigo_ans",
+      "is_particular",
+      "ativo",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "124d3bd6-7e7b-4822-b7ca-c906d239e155",
+      "nome": "Particular",
+      "codigo_ans": null,
+      "is_particular": true,
+      "ativo": true,
+      "created_at": "2026-05-01T22:47:26.345225+00:00",
+      "updated_at": "2026-05-01T22:47:26.345225+00:00"
+    }
+  },
+  "procedimentos": {
+    "count": "1",
+    "columns": [
+      "id",
+      "codigo_tuss",
+      "codigo_cbhpm",
+      "descricao",
+      "ativo",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "1ffc0a6f-9ee1-4469-989c-ebb436466c10",
+      "codigo_tuss": "30907136",
+      "codigo_cbhpm": null,
+      "descricao": "Corre\u00e7\u00e3o Cirurgica de varizes",
+      "ativo": true,
+      "created_at": "2026-05-01T23:54:46.986877+00:00",
+      "updated_at": "2026-05-01T23:54:46.986877+00:00"
+    }
+  },
+  "valores_historico": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  },
+  "orcamentos": {
+    "count": "2",
+    "columns": [
+      "id",
+      "numero",
+      "paciente_id",
+      "paciente_nome",
+      "paciente_telefone",
+      "paciente_email",
+      "medico_id",
+      "data_orcamento",
+      "validade_dias",
+      "diagnostico",
+      "queixa_principal",
+      "achados_duplex",
+      "achados_exame_fisico",
+      "proposta_conduta",
+      "observacoes",
+      "total",
+      "status",
+      "created_by",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "53c3ca4a-6438-485e-aafd-66ea388423db",
+      "numero": 1,
+      "paciente_id": "6d25a66d-e029-4b52-b267-d9471046ab78",
+      "paciente_nome": "Luiza de Lima tavares",
+      "paciente_telefone": "71999372907",
+      "paciente_email": null,
+      "medico_id": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "data_orcamento": "2026-05-02",
+      "validade_dias": 30,
+      "diagnostico": null,
+      "queixa_principal": null,
+      "achados_duplex": null,
+      "achados_exame_fisico": null,
+      "proposta_conduta": null,
+      "observacoes": null,
+      "total": 3000.0,
+      "status": "finalizado",
+      "created_by": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "created_at": "2026-05-02T00:09:01.791421+00:00",
+      "updated_at": "2026-05-02T00:09:01.791421+00:00"
+    }
+  },
+  "orcamento_itens": {
+    "count": "2",
+    "columns": [
+      "id",
+      "orcamento_id",
+      "item_id",
+      "nome_snapshot",
+      "categoria_snapshot",
+      "unidade_snapshot",
+      "quantidade",
+      "valor_unitario",
+      "subtotal",
+      "ordem",
+      "created_at"
+    ],
+    "sample_record": {
+      "id": "1a6d3ec3-6e93-467e-8533-f3de6b6b4b63",
+      "orcamento_id": "53c3ca4a-6438-485e-aafd-66ea388423db",
+      "item_id": "99e4cad3-0005-497a-ac48-7840cf6cbe45",
+      "nome_snapshot": "1000 Disparos",
+      "categoria_snapshot": "Laser transdermico",
+      "unidade_snapshot": "1",
+      "quantidade": 1.0,
+      "valor_unitario": 3000.0,
+      "subtotal": 3000.0,
+      "ordem": 0,
+      "created_at": "2026-05-02T00:09:02.326622+00:00"
+    }
+  },
+  "categorias_orcamento": {
+    "count": "1",
+    "columns": [
+      "id",
+      "nome",
+      "ordem",
+      "ativo",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "7fada8ad-e2b2-4f5f-8b8f-a978dff4a312",
+      "nome": "Laser transdermico",
+      "ordem": 0,
+      "ativo": true,
+      "created_at": "2026-05-02T00:06:37.837+00:00",
+      "updated_at": "2026-05-02T00:06:37.837+00:00"
+    }
+  },
+  "itens_orcamento": {
+    "count": "3",
+    "columns": [
+      "id",
+      "categoria_id",
+      "nome",
+      "descricao",
+      "unidade",
+      "valor_padrao",
+      "ativo",
+      "ordem",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "54a3791b-e3c6-4a82-b067-bc564242c524",
+      "categoria_id": "7fada8ad-e2b2-4f5f-8b8f-a978dff4a312",
+      "nome": "Por disparo",
+      "descricao": null,
+      "unidade": "1",
+      "valor_padrao": 3.5,
+      "ativo": true,
+      "ordem": 0,
+      "created_at": "2026-05-02T00:07:08.159779+00:00",
+      "updated_at": "2026-05-02T00:07:08.159779+00:00"
+    }
+  },
+  "itens_favoritos_medico": {
+    "count": "3",
+    "columns": [
+      "id",
+      "medico_id",
+      "item_id",
+      "valor_customizado",
+      "ativo",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "377a5a4a-628e-49f9-a760-7ac14170e1ef",
+      "medico_id": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "item_id": "99e4cad3-0005-497a-ac48-7840cf6cbe45",
+      "valor_customizado": 3000.0,
+      "ativo": true,
+      "created_at": "2026-05-02T00:08:07.334575+00:00",
+      "updated_at": "2026-05-02T00:08:30.251758+00:00"
+    }
+  },
+  "documentos": {
+    "count": "1",
+    "columns": [
+      "id",
+      "paciente_id",
+      "cirurgia_id",
+      "categoria",
+      "nome",
+      "storage_path",
+      "mime_type",
+      "tamanho_bytes",
+      "origem",
+      "dados_extraidos",
+      "observacoes",
+      "created_by",
+      "created_at",
+      "updated_at"
+    ],
+    "sample_record": {
+      "id": "a25454de-7005-46a4-86e9-3e1462ffc0a7",
+      "paciente_id": "69cd247f-7781-4f0d-9cb2-d3343edebdf7",
+      "cirurgia_id": null,
+      "categoria": "pedido_medico",
+      "nome": "Planserv 1.pdf",
+      "storage_path": "cea773c9-521d-46b3-9984-1eade55a77db/_pendente/1777776050661_Planserv_1.pdf",
+      "mime_type": "application/pdf",
+      "tamanho_bytes": 4885024,
+      "origem": "upload",
+      "dados_extraidos": {
+        "cpf": null,
+        "sexo": null,
+        "email": null,
+        "telefone": null,
+        "convenio_nome": "Planserv",
+        "nome_completo": "JOELMA DOS SANTOS COUTINHO",
+        "data_nascimento": null,
+        "numero_carteirinha": "68238720559007"
+      },
+      "observacoes": null,
+      "created_by": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "created_at": "2026-05-03T02:41:13.407151+00:00",
+      "updated_at": "2026-05-03T02:41:13.407151+00:00"
+    }
+  },
+  "pos_operatorio_registros": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  },
+  "pos_operatorio_documentos": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  },
+  "termos_consentimento": {
+    "count": "3",
+    "columns": [
+      "id",
+      "paciente_id",
+      "cirurgia_id",
+      "modelo_id",
+      "titulo",
+      "conteudo",
+      "procedimento_descricao",
+      "token_acesso",
+      "status",
+      "enviado_em",
+      "aceito_em",
+      "aceite_ip",
+      "aceite_user_agent",
+      "aceite_nome_confirmado",
+      "created_by",
+      "created_at",
+      "updated_at",
+      "aceite_cpf",
+      "assinatura_imagem",
+      "conteudo_hash",
+      "pdf_url",
+      "otp_codigo",
+      "otp_expira_em",
+      "otp_verificado_em"
+    ],
+    "sample_record": {
+      "id": "536d66c0-34bf-4b0c-b5a6-d0aded1960d7",
+      "paciente_id": "6d25a66d-e029-4b52-b267-d9471046ab78",
+      "cirurgia_id": null,
+      "modelo_id": null,
+      "titulo": "Termo de Consentimento Livre e Esclarecido",
+      "conteudo": "Eu, Luiza de Lima tavares, declaro que fui devidamente esclarecido(a) sobre o procedimento Corre\u00e7\u00e3o Cir\u00fargica de Varizes, seus objetivos, riscos, benef\u00edcios e alternativas terap\u00eauticas. Tive a oportunidade de tirar minhas d\u00favidas com a equipe m\u00e9dica e concordo voluntariamente em realiz\u00e1-lo.\n\nEstou ciente de que nenhum procedimento m\u00e9dico \u00e9 isento de riscos e que os resultados podem variar. Autorizo a equipe a realizar quaisquer procedimentos adicionais necess\u00e1rios para minha seguran\u00e7a durante o ato cir\u00fargico.\n\nConfirmo a leitura integral deste termo e aceito eletronicamente.",
+      "procedimento_descricao": "Corre\u00e7\u00e3o Cir\u00fargica de Varizes",
+      "token_acesso": "1e68d435a4cb4057bb36acaf3162cf6f",
+      "status": "aceito",
+      "enviado_em": "2026-05-02T00:03:43.481+00:00",
+      "aceito_em": "2026-05-02T00:04:27.146+00:00",
+      "aceite_ip": "191.15.38.226",
+      "aceite_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "aceite_nome_confirmado": "Luiza de Lima Tavares",
+      "created_by": "cea773c9-521d-46b3-9984-1eade55a77db",
+      "created_at": "2026-05-02T00:03:36.197435+00:00",
+      "updated_at": "2026-05-02T00:04:27.248495+00:00",
+      "aceite_cpf": null,
+      "assinatura_imagem": null,
+      "conteudo_hash": null,
+      "pdf_url": null,
+      "otp_codigo": null,
+      "otp_expira_em": null,
+      "otp_verificado_em": null
+    }
+  },
+  "lembretes_paciente": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  },
+  "notificacoes": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  },
+  "notificacoes_preferencias": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  },
+  "informes_rendimentos": {
+    "count": "0",
+    "columns": [],
+    "sample_record": null
+  }
+}

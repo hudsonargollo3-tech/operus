@@ -1,0 +1,203 @@
+{
+  "features": {
+    "Dashboard / Vis\u00e3o Geral (/)": {
+      "route": "/",
+      "description": "Painel principal com KPIs m\u00e9dicos: cirurgias do m\u00eas/semana, faturamento previsto vs realizado, status de guias/autoriza\u00e7\u00f5es de conv\u00eanios, alertas p\u00f3s-operat\u00f3rios e atalhos r\u00e1pidos.",
+      "tables": [
+        "cirurgias",
+        "pacientes",
+        "orcamentos",
+        "notificacoes"
+      ]
+    },
+    "Pacientes (/pacientes)": {
+      "route": "/pacientes",
+      "description": "Gest\u00e3o completa de prontu\u00e1rio, dados cadastrais, hist\u00f3rico cir\u00fargico, conv\u00eanios vinculados, contatos de emerg\u00eancia e documentos anexos.",
+      "tables": [
+        "pacientes",
+        "documentos",
+        "cirurgias",
+        "lembretes_paciente"
+      ]
+    },
+    "Cirurgias & Agenda (/cirurgias)": {
+      "route": "/cirurgias",
+      "description": "Agendamento cir\u00fargico, hospital/sala, equipe cir\u00fargica (cirurgi\u00e3o, auxiliar 1/2/3, anestesista, instrumentador), procedimentos m\u00faltiplos (c\u00f3digo TUSS, via de acesso, percentual CBHPM), status de autoriza\u00e7\u00e3o e materiais especiais (OPME).",
+      "tables": [
+        "cirurgias",
+        "cirurgia_equipe",
+        "cirurgia_procedimentos",
+        "pacientes",
+        "convenios"
+      ]
+    },
+    "Or\u00e7amentos Cir\u00fargicos (/orcamentos)": {
+      "route": "/orcamentos",
+      "description": "Elabora\u00e7\u00e3o de or\u00e7amentos particulares e de coparticipa\u00e7\u00e3o, composi\u00e7\u00e3o de honor\u00e1rios da equipe, custos hospitalares, taxas, materiais/OPME, formas de pagamento e gera\u00e7\u00e3o de proposta em PDF/Link.",
+      "tables": [
+        "orcamentos",
+        "orcamento_itens",
+        "categorias_orcamento",
+        "itens_orcamento",
+        "itens_favoritos_medico"
+      ]
+    },
+    "Conv\u00eanios & Planos de Sa\u00fade (/convenios)": {
+      "route": "/convenios",
+      "description": "Cadastro de operadoras/planos (Bradesco, Unimed, SulAm\u00e9rica, Amil, etc.), tabelas de honor\u00e1rios, prazos de repasse, regras de via de acesso e documenta\u00e7\u00e3o exigida para faturamento.",
+      "tables": [
+        "convenios",
+        "valores_historico"
+      ]
+    },
+    "Procedimentos & Tabela TUSS/CBHPM (/procedimentos)": {
+      "route": "/procedimentos",
+      "description": "Cat\u00e1logo de procedimentos cir\u00fargicos com c\u00f3digo TUSS, porte anest\u00e9sico, porte cir\u00fargico, custo operacional (UCO/CH) e valores padr\u00e3o por conv\u00eanio.",
+      "tables": [
+        "procedimentos",
+        "valores_historico"
+      ]
+    },
+    "Aux\u00edlios & Equipe M\u00e9dica (/auxilios & /equipe)": {
+      "route": "/auxilios e /equipe",
+      "description": "Gest\u00e3o de colegas cirurgi\u00f5es, instrumentadores e anestesistas. Controle de cirurgias em que o m\u00e9dico atuou como auxiliar (1\u00ba auxiliar, 2\u00ba auxiliar) e divis\u00e3o de honor\u00e1rios.",
+      "tables": [
+        "profiles",
+        "cirurgia_equipe",
+        "cirurgias"
+      ]
+    },
+    "Financeiro & Repasses (/financeiro)": {
+      "route": "/financeiro",
+      "description": "Fluxo de caixa cir\u00fargico: faturamento de conv\u00eanios (faturado, glosado, pago), honor\u00e1rios particulares recebidos, repasses para equipe, relat\u00f3rios DRE e informes de rendimento.",
+      "tables": [
+        "cirurgias",
+        "orcamentos",
+        "informes_rendimentos"
+      ]
+    },
+    "P\u00f3s-Operat\u00f3rio (/pos-operatorio)": {
+      "route": "/pos-operatorio",
+      "description": "Acompanhamento de recupera\u00e7\u00e3o do paciente: registros di\u00e1rios/semanais de sintomas, evolu\u00e7\u00e3o cicatricial, fotos de curativos, upload de laudos e alertas de intercorr\u00eancias.",
+      "tables": [
+        "pos_operatorio_registros",
+        "pos_operatorio_documentos",
+        "pacientes"
+      ]
+    },
+    "Termos de Consentimento & Aceite (/termos & /aceite-termo/:token)": {
+      "route": "/termos e /aceite-termo/:token",
+      "description": "Modelos de TCLE (Termo de Consentimento Livre e Esclarecido) espec\u00edficos por procedimento. Envio de link seguro para assinatura eletr\u00f4nica / aceite digital com geolocaliza\u00e7\u00e3o e IP do paciente.",
+      "tables": [
+        "termos_consentimento"
+      ],
+      "edge_functions": [
+        "aceite-termo"
+      ]
+    },
+    "Documentos & Extra\u00e7\u00e3o AI (/documentos)": {
+      "route": "/documentos",
+      "description": "Gest\u00e3o de laudos, exames, guias TISS, pedidos m\u00e9dicos e relat\u00f3rios com OCR/AI para extra\u00e7\u00e3o autom\u00e1tica de dados do paciente e cirurgia.",
+      "tables": [
+        "documentos"
+      ],
+      "edge_functions": [
+        "extrair-documento"
+      ]
+    },
+    "Lembretes & Notifica\u00e7\u00f5es (/lembretes & /notificacoes)": {
+      "route": "/lembretes e /notificacoes",
+      "description": "Central de alertas cir\u00fargicos: jejum, suspens\u00e3o de medicamentos (anticoagulantes), autoriza\u00e7\u00f5es pendentes de conv\u00eanio, confirma\u00e7\u00f5es de sala e anivers\u00e1rios.",
+      "tables": [
+        "lembretes_paciente",
+        "notificacoes",
+        "notificacoes_preferencias"
+      ],
+      "rpcs": [
+        "gerar_notificacoes_usuario"
+      ]
+    },
+    "Perfil & Configura\u00e7\u00f5es da Cl\u00ednica (/perfil)": {
+      "route": "/perfil",
+      "description": "Dados do m\u00e9dico (CRM, especialidade, assinatura, logotipo da cl\u00ednica para cabe\u00e7alhos de or\u00e7amentos e termos), dados da cl\u00ednica e prefer\u00eancias de notifica\u00e7\u00e3o.",
+      "tables": [
+        "profiles",
+        "user_roles",
+        "logos-medicos"
+      ]
+    }
+  },
+  "toasts_sample": [],
+  "dialog_titles": [
+    "Adicionar informe de rendimentos",
+    "Adicionar item",
+    "Agendar lembrete / retorno",
+    "Apenas administradores podem gerenciar pap\u00e9is da equipe.",
+    "Cadastre um paciente primeiro.",
+    "Cadastro completo dos seus pacientes cir\u00fargicos.",
+    "Cat\u00e1logo de procedimentos cir\u00fargicos. TUSS/CBHPM opcionais.",
+    "Cirurgia (opcional)",
+    "Cirurgias",
+    "Cirurgias do per\u00edodo",
+    "Cirurgias realizadas",
+    "Confirmar nova senha",
+    "Conte\u00fado do termo",
+    "Conv\u00eanio",
+    "Conv\u00eanio:",
+    "Conv\u00eanios",
+    "Criar paciente automaticamente a partir deste documento (IA)",
+    "Dados da cl\u00ednica/consult\u00f3rio (aparecem no PDF do or\u00e7amento)",
+    "Dados do paciente",
+    "Data do or\u00e7amento",
+    "Defina uma nova senha de acesso.",
+    "Defina uma nova senha para acessar o sistema",
+    "Digitalizar documento",
+    "Distribui\u00e7\u00e3o das cirurgias",
+    "Documentos",
+    "Envie termos para aceite eletr\u00f4nico do paciente.",
+    "Equipe & pap\u00e9is",
+    "Evolu\u00e7\u00f5es, retornos, complica\u00e7\u00f5es e documentos da cirurgia.",
+    "Financeiro",
+    "Lembrete",
+    "Lembretes & retornos",
+    "Monte or\u00e7amentos personalizados e gere PDF para o paciente.",
+    "Nenhum documento encontrado.",
+    "Nenhum lembrete pr\u00f3ximo.",
+    "Nenhum or\u00e7amento ainda.",
+    "Nenhum procedimento ainda.",
+    "Nenhuma cirurgia agendada nos pr\u00f3ximos 7 dias.",
+    "Nome do documento (opcional)",
+    "Nome do paciente *",
+    "Notifica\u00e7\u00f5es",
+    "Nova",
+    "Nova cirurgia",
+    "Nova data e hor\u00e1rio",
+    "Nova senha",
+    "Novo documento",
+    "Novo or\u00e7amento",
+    "Novo procedimento",
+    "Novo registro p\u00f3s-operat\u00f3rio",
+    "Novo termo",
+    "Or\u00e7amentos",
+    "Or\u00e7amentos recentes",
+    "Paciente",
+    "Paciente *",
+    "Pacientes",
+    "Preencha os dados do paciente e selecione os procedimentos.",
+    "Procedimento",
+    "Procedimento principal (opcional)",
+    "Procedimentos",
+    "Pr\u00f3ximas cirurgias",
+    "Selecionar paciente cadastrado",
+    "Selecione a cirurgia",
+    "Sem cirurgias neste dia.",
+    "Sem notifica\u00e7\u00f5es por enquanto",
+    "Termo de consentimento eletr\u00f4nico",
+    "Termo indispon\u00edvel",
+    "Termos de consentimento",
+    "Todas as cirurgias do per\u00edodo em que voc\u00ea foi auxiliar.",
+    "Todos os pacientes",
+    "Valor do procedimento (R$)",
+    "Voc\u00ea n\u00e3o tem permiss\u00e3o para acessar o m\u00f3dulo financeiro."
+  ]
+}
