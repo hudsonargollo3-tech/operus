@@ -1,100 +1,84 @@
-# Operus Surgical Suite — Comprehensive Brand Identity & Prompting Blueprint
+# Operus Surgical Suite — Premium Brand Identity & AI Prompting System
 
-## 1. Brand Essence, Positioning & Vision
+## 1. Brand Essence, Positioning & Visual Niche
 
-**Operus** is the intelligent surgical operating system designed for modern surgeons, surgical teams, and specialty clinics. It replaces fragmented WhatsApp threads, paper records, and manual billing with an integrated surgical ERP spanning pre-op scheduling, multi-procedure TUSS management, digital TCLE consent, OPME tracking, post-op patient recovery, and fee repasses.
+**Operus** is the enterprise surgical intelligence operating system crafted specifically for high-volume surgeons, surgical teams, and private clinics.
 
-### 1.1 Brand Personality & Archetype
-- **Archetype:** *The Precision Specialist + The Tech Vanguard* (Expert, Ultra-Reliable, Sleek, Clinically Compliant).
-- **Tone of Voice:** Authoritative yet approachable, clean, sharp, professional, without medical jargon overload or generic corporate fluff.
-- **Brand Slogan (PT/EN):**
-  - PT: *Operus — Inteligência Cirúrgica de Ponta a Ponta.*
-  - EN: *Operus — Precision Surgical Intelligence.*
+Unlike generic hospital ERPs or first-aid apps, Operus is engineered around surgical precision:
+- **Core Symbol:** The **Surgical Aperture & Scalpel "O"** — a geometric fusion of an open endoscopic circular lens with a central micro-scalpel axis rotated at 15°, symbolizing pinpoint surgical accuracy and clarity.
+- **Brand Archetype:** *The Master Surgeon + High-Tech Enterprise* (Linear meets Da Vinci Surgical Systems & Apple Pro).
+- **Tone of Voice:** Authoritative, clinical, streamlined, whisper-luxury, zero medical clutter.
 
 ---
 
-## 2. Adapted CitasYa Design System (Design Tokens)
+## 2. Authentic Color Palette & Design Tokens
 
-Adapted directly from the battle-tested CitasYa design language and elevated for high-stakes medical software.
+Extracted directly from the original Operus platform architecture and refined for ultra-high-end UI surfaces:
 
-### 2.1 Color Palette & Token System
 ```css
 :root {
-  /* Primary & Accents */
-  --operus-emerald: #006948;      /* Primary Brand / Trust / Authority */
-  --operus-emerald-dark: #022C22; /* Deep Obsidian Green */
-  --operus-lime: #84CC16;         /* Electric Lime / Active Status / CTA Focus */
-  --operus-cyan: #0EA5E9;         /* Medical Precision / Financials / Tech */
+  /* Core Operus Cobalt Blue System */
+  --operus-blue-primary: #1B58D6;   /* Authentic Operus Core Blue */
+  --operus-blue-light:   #2766E6;   /* Electric Cobalt / Hover & Gradient Top */
+  --operus-blue-dark:    #1646BB;   /* Deep Sapphire / Gradient Bottom & Borders */
+  --operus-blue-subtle:  #F0F6FF;   /* Ice Blue Surface / Active Light Backgrounds */
+  --operus-blue-glow:    rgba(27, 88, 214, 0.35);
 
-  /* Neutral Surfaces */
-  --bg-slate-light: #F8FAFC;      /* Light Surface (Default Admin) */
-  --bg-white: #FFFFFF;            /* Card / Modal Fill */
-  --border-light: #E2E8F0;        /* Subtle Bezel */
+  /* Clean Dark & Light Neutral Surfaces */
+  --surface-dark-obsidian: #090D16; /* Dark Theme Canvas */
+  --surface-dark-card:     #0F172A; /* Slate 900 Double-Bezel Card */
+  --surface-dark-border:   #1E293B; /* Slate 800 Bezel */
   
-  --bg-slate-dark: #090D16;       /* Dark Surface (Immersive / Mobile / Public TCLE) */
-  --bg-slate-card: #0F172A;       /* Elevated Dark Card */
-  --border-dark: #1E293B;         /* Dark Bezel */
+  --surface-light-bg:      #F8FAFC; /* Crisp Clean Medical Dashboard Canvas */
+  --surface-light-card:    #FFFFFF; /* Pure White Elevated Card */
+  --surface-light-border:  #E2E8F0; /* Subtle Bezel */
 
-  /* Status Colors */
-  --status-authorized: #10B981;   /* Cirurgia Autorizada */
-  --status-pending: #F59E0B;      /* Guia / OPME em Análise */
-  --status-critical: #F43F5E;     /* Alerta / Intercorrência / Glosa */
-  --status-private: #3B82F6;      /* Procedimento Particular */
+  /* Clinical Status Tokens */
+  --status-authorized:     #10B981; /* Cirurgia Autorizada / Verde Clínico */
+  --status-pending:        #F59E0B; /* Guia / OPME em Análise / Âmbar */
+  --status-critical:       #F43F5E; /* Alerta / Intercorrência / Rosa Cirúrgico */
+  --status-private:        #2766E6; /* Particular / Azul Operus */
 }
 ```
 
-### 2.2 Typography Hierarchy
-- **Headings & Brand:** `Outfit` (Weights: 600, 700, 800) — Modern geometric clarity.
-- **Body & Controls:** `Plus Jakarta Sans` (Weights: 400, 500, 600) — High legibility at micro sizes.
-- **Data, TUSS & Hashes:** `JetBrains Mono` / `SF Mono` — Monospace precision for medical codes.
-
-### 2.3 Component Principles
-1. **Double-Bezel Bento Cards:** 1px subtle outer border + 4px inner ambient shadow for tactile depth.
-2. **Dynamic Status Pills:** Micro-dot or vector icon + capitalized status badge with tinted 10% opacity backgrounds.
-3. **Surgical Pulse Loader:** Concentric rotating dashed rings + pulsing center medical cross.
-
 ---
 
-## 3. Master AI Image Generation Prompts (Midjourney v6 / Flux.1 Pro / Ideogram 2)
+## 3. Recreated Master AI Image Prompts (Midjourney v6.1 / Flux.1 Pro / Ideogram 2)
 
-### 3.1 Master Brand Logo & Vector Mark
+### 3.1 Primary Brand Logo & SVG Vector Mark
 ```text
-/imagine prompt: Minimalist surgical technology logo mark for "OPERUS", featuring an ultra-sleek geometric medical cross fused with a precision circular surgical lens ring, clean vector design, emerald green (#006948) and electric lime (#84CC16) accents on pure dark obsidian background (#090D16), Apple Pro design aesthetic, mathematically balanced, Figma icon style, svg flat vector, high contrast, 8k --ar 1:1 --v 6.1 --style raw
+/imagine prompt: Ultra-minimalist luxury surgical tech logo mark for "OPERUS", featuring a modern geometric open circular aperture forming an elegant "O" with a central precision surgical scalpel node rotated at 15 degrees, deep cobalt blue (#1B58D6) and electric royal sapphire (#2766E6) on a dark slate background (#090D16), Apple Pro Design aesthetic, mathematically precise lines, pure flat vector, Figma UI icon style, crisp high contrast, 8k resolution, no gradients, no crosshairs, luxury enterprise software --ar 1:1 --v 6.1 --style raw
 ```
 
-### 3.2 3D Luxury App Icon & Launcher Badge
+### 3.2 3D Luxury App Squircle Icon (iOS / macOS / Android Pro)
 ```text
-/imagine prompt: Premium 3D square app icon for "Operus Surgical Suite", rounded squircle iOS style, frosted glass and brushed dark titanium material, glowing neon emerald green medical cross embossed in the center with subtle cyan refractive edge lighting, studio lighting, octane render, Ray Tracing, 8k resolution, minimalist hyper-realistic, luxury tech branding --ar 1:1 --v 6.1
+/imagine prompt: Luxury 3D square app icon for "Operus Surgical Suite", rounded iOS squircle shape, brushed dark titanium surface with frosted sapphire glass overlay, glowing electric cobalt blue (#2766E6) surgical aperture and scalpel mark embossed in the center, subtle cyan edge refraction, volumetric soft studio lighting, Octane render, Ray Tracing, 8k resolution, premium B2B medical SaaS aesthetic --ar 1:1 --v 6.1
 ```
 
-### 3.3 Website Hero Banner (16:9 Desktop)
+### 3.3 Website Hero Banner: The Modern Surgical Suite (16:9 Desktop)
 ```text
-/imagine prompt: Wide cinematic shot of a modern minimalist surgical consultation suite, a confident surgeon in tailored surgical scrubs holding a sleek glass tablet displaying a glowing emerald and slate medical dashboard with surgical schedules and charts, high-end private hospital background with subtle ambient cyan and warm lighting, depth of field, Hasselblad photography, clean architectural lines, ultra-realistic, 8k --ar 16:9 --v 6.1 --style raw
+/imagine prompt: Cinematic wide shot of a prestigious private hospital surgical theater and consultation suite, an experienced surgeon in tailored dark navy scrubs looking at an ultra-thin glass tablet displaying a glowing cobalt blue (#1B58D6) and white surgical scheduling dashboard, ambient soft medical lighting with subtle sapphire blue reflections on polished concrete and stainless steel, shallow depth of field, Hasselblad medium format photography, clean architectural lines, ultra-realistic 8k --ar 16:9 --v 6.1 --style raw
 ```
 
-### 3.4 Feature Highlight: Digital TCLE & Patient Journey
+### 3.4 Feature Highlight: Digital TCLE & Touch Signature
 ```text
-/imagine prompt: Close-up macro photograph of a patient's hands using a smartphone to sign a digital consent form on a clean dark-mode medical interface, biometric fingerprint validation glow in emerald and lime, clean modern clinic background, natural soft lighting, premium aesthetic, 8k resolution --ar 16:9 --v 6.1
+/imagine prompt: Close-up macro studio photography of a sleek smartphone resting on a minimalist walnut medical desk, displaying the Operus dark-mode digital surgical consent form (TCLE) with a clean digital signature and verification badge in vibrant cobalt blue (#1B58D6), soft natural window light, clinical luxury, ultra-sharp detail, 8k --ar 16:9 --v 6.1
 ```
 
----
+### 3.5 Feature Highlight: Multi-Procedure TUSS & OPME Management
+```text
+/imagine prompt: Ultra-sleek floating glass UI cards showing surgical procedure timelines, TUSS codes, and OPME laser fiber tracking, rendered in deep cobalt blue (#1B58D6) and slate glass with micro-typography, dark studio background with subtle medical laser reflections, precision UI design, 8k resolution --ar 16:9 --v 6.1
+```
 
-## 4. Social Media Campaign Assets & Content Engine
+### 3.6 LinkedIn B2B Thought Leadership Banner (1200x627)
+```text
+/imagine prompt: High-end LinkedIn banner for "Operus Surgical Intelligence", deep dark slate (#0F172A) textured background with glowing geometric data streams and floating glass surgical KPI widgets in cobalt blue (#1B58D6) and sapphire, minimalist typography reading "Precision Surgical Operating System", ultra-clean luxury enterprise branding --ar 1200:627 --v 6.1
+```
 
-### 4.1 Instagram Carousel (4:5 Ratio — 1080x1350)
+### 3.7 Instagram 5-Slide Carousel Campaign (1080x1350 — 4:5 Ratio)
 - **Slide 1 (Hook):** "Por que cirurgiões de alta performance abandonaram o WhatsApp na rotina cirúrgica?"
-  - *Prompt:* Minimalist dark slate bento card with an alert notification icon transforming into an organized emerald surgical schedule, premium typography, studio lighting, 4:5 ratio.
-- **Slide 2 (The Problem):** "Glosas de convênio, atrasos de OPME e termos em papel perdidos custam até 30% do faturamento da equipe."
-- **Slide 3 (The Solution - Operus):** "Uma central cirúrgica única: do agendamento com equipe à assinatura digital de TCLE em 30 segundos."
-- **Slide 4 (Key Features):** "Regras CBHPM/TUSS automáticas (100%/70%/50%), controle de honorários de auxiliares e acompanhamento pós-op diário."
-- **Slide 5 (CTA):** "Eleve a governança da sua prática cirúrgica. Conheça o Operus Surgical Suite."
-
-### 4.2 LinkedIn B2B Thought Leadership Banner (1200x627)
-```text
-/imagine prompt: Sleek professional LinkedIn banner for "Operus Surgical Suite", dark slate (#0F172A) textured background with glowing geometric data nodes in emerald (#006948) and electric lime, floating surgical KPI cards showing revenue growth and zero glosas, subtle typography "Precision Surgical Operating System", ultra-clean corporate tech aesthetic --ar 1200:627 --v 6.1
-```
-
-### 4.3 Mobile Story & Reel Cover (9:16 — 1080x1920)
-```text
-/imagine prompt: Vertical high-impact mobile wallpaper and reel cover for surgical SaaS, dark titanium texture with glowing circular surgical ring in emerald green and cyber lime, futuristic medical interface elements, clean negative space for typography, hyper-detailed, 8k --ar 9:16 --v 6.1
-```
+  - *Visual:* Minimalist dark slate card with a glowing blue surgical badge replacing fragmented chat bubbles.
+- **Slide 2 (The Hidden Cost):** "Glosas de convênio, falha de entrega de OPME e termos de papel perdidos custam até 30% dos honorários da equipe."
+- **Slide 3 (The Solution):** "Operus: Uma central cirúrgica única — da agenda com a equipe ao aceite digital de TCLE em 30 segundos."
+- **Slide 4 (Precision Rules):** "Cálculo automático de via de acesso TUSS (100% / 70% / 50%) e divisão transparente de honorários de auxiliares e anestesistas."
+- **Slide 5 (CTA):** "Eleve a governança da sua prática cirúrgica. Acesse operus.app.br."
