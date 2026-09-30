@@ -4,16 +4,13 @@
 
 **Operus** is the enterprise surgical intelligence operating system crafted specifically for high-volume surgeons, surgical teams, and private clinics.
 
-Unlike generic hospital ERPs or first-aid apps, Operus is engineered around surgical precision:
-- **Primary Monogram Symbol:** **The OP Interlocking Scalpel Ribbon** — A central vertical precision scalpel (pointed blade, hexagonal core, structural grip) interlaced with the monogram letters **"O"** and **"P"** through a continuous geometric ribbon / vascular loop.
-- **Brand Archetype:** *The Master Surgeon + High-Tech Enterprise* (Linear meets Da Vinci Surgical Systems & Apple Pro).
+- **Design Philosophy:** Modernist minimalism (Braun, Apple Pro, Linear SaaS, Stripe). Zero fantasy clichés, zero gaming tropes, zero sword/dagger imagery, zero magic runes.
+- **Visual Identity:** Clean geometric curves, smooth abstract continuous loops, single-weight vector strokes, frosted sapphire glass with clean studio lighting.
 - **Tone of Voice:** Authoritative, clinical, streamlined, whisper-luxury, zero medical clutter.
 
 ---
 
 ## 2. Authentic Color Palette & Design Tokens
-
-Extracted directly from the original Operus platform architecture:
 
 ```css
 :root {
@@ -43,36 +40,30 @@ Extracted directly from the original Operus platform architecture:
 
 ---
 
-## 3. "OP Interlocking Scalpel" — 3D Styles & Master Prompts
+## 3. Pure SaaS & Medical Tech Logo Prompts (Zero RPG / Zero Gaming Slop)
 
-### 3.1 Style 1: Frosted Sapphire Glass & Brushed Titanium (Linear / Apple Pro Luxury)
-*Translucent, refractive floating glass ribbons with inner blue caustics, interlocking around a central brushed titanium scalpel.*
+### 3.1 Prompt 1: Pure Geometric "OP" Vector Logo (Linear & Stripe Style)
+*Ultra-clean 2D/2.5D continuous ribbon forming the letters O and P with single uniform line weight and subtle depth.*
 ```text
-/imagine prompt: Ultra-luxury 3D emblem for "Operus Surgical Suite", featuring an interlocking monogram with letters "O" and "P" woven around a central vertical surgical scalpel with a hexagonal aperture joint. Made of frosted sapphire glass with vibrant cobalt blue (#1B58D6) inner refraction and brushed dark titanium edges. Floating over an obsidian slate background (#090D16), volumetric soft studio lighting, caustic glass reflections, Octane render, Ray Tracing, 8k resolution, premium B2B medical technology aesthetic --ar 1:1 --v 6.1 --style raw
+/imagine prompt: Minimalist modern tech company logo for "OPERUS", abstract geometric monogram combining letter "O" and letter "P" into a continuous smooth ribbon loop with a clean vertical surgical alignment, single uniform line weight, subtle layered overlap shadows, vibrant cobalt blue (#1B58D6) and electric royal blue (#2766E6) on a clean dark slate background (#090D16), Apple design system, Linear app aesthetic, pure flat vector, Figma UI icon, mathematically balanced, no text, no runes, no swords, no gaming elements --ar 1:1 --v 6.1 --style raw --no sword, dagger, blade, runes, gaming, rpg, shield, crest, stars, magic, metallic armor, smoke, aura
 ```
 
-### 3.2 Style 2: Matte Ceramic & Anodized Cobalt Titanium (Clean Clinical Precision)
-*Satin-finish medical ceramic intertwined with precision anodized royal blue titanium, evoking Swiss surgical instruments.*
+### 3.2 Prompt 2: Modern 3D Glass App Icon (Apple iOS Pro / macOS)
+*Translucent frosted sapphire glass and matte dark titanium with clean studio lighting and soft caustics.*
 ```text
-/imagine prompt: Precision 3D icon for "Operus", showing a vertical surgical scalpel knife intersecting with a continuous ribbon loop forming the monogram letters "O" and "P". Constructed from matte white surgical ceramic and anodized electric cobalt blue (#2766E6) titanium with beveled edges and soft ambient shadows. Minimalist dark studio backdrop, crisp macro focus, high-end industrial design, clean geometry, 8k --ar 1:1 --v 6.1
+/imagine prompt: Modern 3D iOS app icon for a medical technology SaaS called "Operus", rounded squircle dark slate icon container, featuring a clean floating abstract geometric "OP" loop in frosted sapphire glass and vibrant cobalt blue (#1B58D6), soft natural studio lighting, clean glass refraction, minimalist luxury industrial design, Octane render, 8k resolution, Apple Human Interface Guidelines aesthetic --ar 1:1 --v 6.1 --no sword, blade, runes, gaming, rpg, shield, crest, magic, smoke, flame
 ```
 
-### 3.3 Style 3: Monolithic Holographic Obsidian (Cyber-Surgical Intelligence)
-*Dark polished obsidian structure with glowing internal blue laser waveguides and subtle cyan edge highlights.*
+### 3.3 Prompt 3: The Surgical Precision Aperture Mark (Original Logo Evolution)
+*Modernized version of the authentic Operus logo: an open circular surgical scope with a precision 15-degree micro-axis.*
 ```text
-/imagine prompt: High-tech 3D monolithic logo mark for "Operus", vertical surgical scalpel integrated with an interlocking "O" and "P" ribbon lattice. Polished black obsidian material with glowing electric cobalt blue (#1B58D6) neon laser channels running through the ribbon grooves, subtle cyan edge lighting, floating above a dark slate platform with soft reflections, futuristic surgical SaaS, Cinema 4D, Redshift render, 8k --ar 1:1 --v 6.1
+/imagine prompt: Ultra-clean corporate tech logo mark for "OPERUS", minimalist open circular aperture with a precision vertical surgical micro-node rotated at 15 degrees, smooth rounded geometry, vibrant cobalt blue (#1B58D6) and ice blue on a dark obsidian background (#090D16), modern B2B SaaS logo, designed by Paul Rand and Jony Ive, pure vector simplicity, high contrast, 8k --ar 1:1 --v 6.1 --style raw --no sword, blade, weapon, runes, gaming, fantasy, shield, crest, smoke
 ```
 
-### 3.4 Style 4: 3D Squircle iOS/Android App Icon (Multi-Layered Depth)
-*Elevated 3D badge with double-bezel depth, layered shadows, and tactile feel for app store and home screens.*
+### 3.4 Prompt 4: Matte Ceramic & Anodized Titanium (Swiss Precision)
+*Smooth matte white surgical ceramic paired with precision cobalt anodized titanium.*
 ```text
-/imagine prompt: Premium 3D iOS squircle app icon for "Operus Surgical Suite", rounded square dark slate (#0F172A) badge with a subtle metallic rim. Inside, a floating 3D emblem of an interlocking "O" and "P" continuous ribbon woven through a central surgical scalpel blade in glowing cobalt blue (#2766E6) and sapphire (#1646BB) with realistic drop shadows and ambient occlusion, studio render, 8k --ar 1:1 --v 6.1
-```
-
-### 3.5 Style 5: Flat Minimalist Master Vector (SVG / Brand Guide)
-*Pure 2D vector for web headers, favicons, and official brand assets.*
-```text
-/imagine prompt: Flat vector logo mark for "OPERUS", minimalist geometric surgical scalpel oriented vertically in the center, interlocking with a stylized continuous ribbon forming the letters "O" on the left and "P" on the right, uniform line weight, subtle layered overlap shadows, electric cobalt blue (#1B58D6) on dark obsidian (#090D16), pure vector, Figma icon, Apple design system, 8k --ar 1:1 --v 6.1 --style raw
+/imagine prompt: Minimalist 3D product icon for medical SaaS software "Operus", showing a smooth abstract continuous "OP" geometric ribbon made of matte white surgical ceramic and anodized cobalt blue (#1B58D6) titanium, resting on a dark slate surface with soft ambient occlusion shadows, macro studio photography, Braun Dieter Rams design philosophy, ultra-clean --ar 1:1 --v 6.1 --no sword, dagger, weapon, runes, fantasy, gaming, shield, crest
 ```
 
 ---
