@@ -1,0 +1,13 @@
+{
+  "name": "operus-monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @operus/web dev",
+    "build": "pnpm --filter @operus/web build",
+    "start": "pnpm --filter @operus/web start",
+    "lint": "pnpm --recursive lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
