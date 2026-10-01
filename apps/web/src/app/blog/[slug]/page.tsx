@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 import { BLOG_POSTS } from '@/lib/blog-data';
 
 interface PageProps {
@@ -15,6 +16,37 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: 'Artigo Não Encontrado — Operus Blog',
+      description: 'Artigo de inteligência cirúrgica não encontrado.'
+    };
+  }
+
+  return {
+    title: `${post.title} — Operus Intelligence`,
+    description: post.summary,
+    keywords: post.tags.join(', '),
+    openGraph: {
+      title: post.title,
+      description: post.summary,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author.name],
+      tags: post.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+    }
+  };
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
@@ -23,8 +55,46 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  // Structured Data Schema for AI Engines (Perplexity, ChatGPT Search, Claude, Google AI Overviews)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    headline: post.title,
+    description: post.summary,
+    datePublished: post.date,
+    inLanguage: 'pt-BR',
+    author: {
+      '@type': 'Person',
+      name: post.author.name,
+      jobTitle: post.author.role,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Operus Surgical Suite',
+      url: 'https://operus.clubemkt.digital'
+    },
+    keywords: post.tags.join(', '),
+    mainEntity: post.faqs && post.faqs.length > 0 ? {
+      '@type': 'FAQPage',
+      mainEntity: post.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer
+        }
+      }))
+    } : undefined
+  };
+
   return (
     <div className="min-h-screen bg-[#090D16] text-slate-100 flex flex-col antialiased selection:bg-[#1B58D6] selection:text-white">
+      {/* JSON-LD for AI Search Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Header */}
       <header className="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur-md sticky top-0 z-40 px-6 py-4 flex items-center justify-between">
         <Link href="/blog" className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition">
@@ -53,7 +123,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Article Content */}
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 sm:px-6 py-12 space-y-8">
         <div className="space-y-4 border-b border-slate-800 pb-8">
-          <div className="flex items-center gap-2 text-xs">
+          <div className="flex flex-wrap items-center gap-2 text-xs">
             <span className="px-3 py-1 rounded-full bg-blue-500/20 text-sky-300 font-bold uppercase tracking-wider border border-blue-500/30">
               {post.category}
             </span>
@@ -76,11 +146,49 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.author.name[0]}
             </div>
             <div>
-              <p className="text-xs font-bold text-white">{post.author.name}</p>
+              <p className="text-xs font-bold text-white flex items-center gap-2">
+                {post.author.name}
+                {post.author.crm && (
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    {post.author.crm}
+                  </span>
+                )}
+              </p>
               <p className="text-[11px] text-slate-400">{post.author.role}</p>
             </div>
           </div>
         </div>
+
+        {/* AI Key Takeaways Box (Generative Engine Optimization Hook) */}
+        {post.keyTakeaways && post.keyTakeaways.length > 0 && (
+          <div className="bg-gradient-to-r from-blue-950/60 to-slate-900 border border-blue-500/30 rounded-2xl p-5 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wide">
+              <svg className="w-4 h-4 text-[#22D3EE]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Síntese Executiva & Pontos Chave (AI Quick Reference)
+            </div>
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
+              {post.keyTakeaways.map((takeaway, idx) => (
+                <li key={idx} className="leading-relaxed">
+                  <span className="text-slate-200">{takeaway}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* TUSS / Regulatory Tags if available */}
+        {post.tussCodes && (
+          <div className="flex items-center gap-2 flex-wrap text-xs text-slate-400">
+            <span className="font-semibold text-slate-300">Códigos TUSS Auditados:</span>
+            {post.tussCodes.map((code) => (
+              <span key={code} className="px-2 py-0.5 rounded bg-slate-800 text-sky-300 font-mono border border-slate-700">
+                {code}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Article Body */}
         <div className="prose prose-invert max-w-none text-slate-300 text-sm sm:text-base leading-relaxed space-y-6">
@@ -88,6 +196,24 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.content}
           </div>
         </div>
+
+        {/* Interactive FAQ Section for AI Search Engine Snippet Indexation */}
+        {post.faqs && post.faqs.length > 0 && (
+          <div className="space-y-4 pt-4 border-t border-slate-800">
+            <h3 className="text-lg font-bold text-white font-heading flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+              Perguntas Frequentes & Respostas Diretas
+            </h3>
+            <div className="space-y-3">
+              {post.faqs.map((faq, idx) => (
+                <div key={idx} className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 space-y-2">
+                  <h4 className="text-sm font-semibold text-sky-200">{faq.question}</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Bottom CTA Card */}
         <div className="bg-gradient-to-br from-[#1646BB]/40 via-slate-900 to-slate-950 border border-blue-500/30 p-8 rounded-3xl text-center space-y-4 shadow-2xl">
