@@ -30,11 +30,32 @@ export default function BlueprintViewerPage() {
   const [activeTab, setActiveTab] = useState<'architecture' | 'branding' | 'prompts' | 'design-system'>('architecture');
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlPass = params.get('pass') || params.get('password') || params.get('key') || params.get('auth') || params.get('p');
+      const hash = window.location.hash ? window.location.hash.replace('#', '') : '';
+      const cached = localStorage.getItem('operus_auth');
+
+      if (
+        urlPass === 'operus2026' || urlPass === 'clube2026' || urlPass === 'admin' ||
+        hash === 'operus2026' || hash === 'clube2026' ||
+        cached === 'true'
+      ) {
+        setIsAuthenticated(true);
+        localStorage.setItem('operus_auth', 'true');
+      }
+    }
+  }, []);
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === 'operus2026' || password === 'clube2026' || password === 'admin') {
       setIsAuthenticated(true);
       setErrorMsg('');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('operus_auth', 'true');
+      }
     } else {
       setErrorMsg('Senha incorreta. Tente novamente.');
     }
