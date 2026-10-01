@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Operus Surgical Suite",
+    "slug": "operus",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#090D16"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "digital.clubemkt.operus",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Operus utiliza biometria para autorizar termos cirúrgicos e acessar prontuários médicos com segurança."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#090D16"
+      },
+      "package": "digital.clubemkt.operus",
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Permitir que o Operus autentique você via Face ID para liberação de cirurgias e assinatura de TCLE."
+        }
+      ]
+    ],
+    "scheme": "operus"
+  }
+}
