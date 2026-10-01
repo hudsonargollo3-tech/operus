@@ -1,7 +1,6 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  basePath: '/operus',
   transpilePackages: ['@operus/types'],
   images: {
     remotePatterns: [
