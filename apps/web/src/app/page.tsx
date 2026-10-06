@@ -2,10 +2,28 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
+
+// Lead capture via Cloudflare KV
+async function captureLead(plano: string) {
+  try {
+    await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plano, source: 'landing' }),
+    });
+  } catch {
+    // Silently fail — lead capture is best-effort
+  }
+}
+
+
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
+
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -56,9 +74,12 @@ export default function LandingPage() {
           <Link href="/login" className="px-3.5 py-2 text-slate-300 hover:text-white font-semibold transition">
             Entrar
           </Link>
-          <Link href="/cadastro" className="px-4 py-2 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold rounded-xl shadow-md shadow-blue-900/30 transition">
+          <button
+            onClick={() => { captureLead(''); router.push('/cadastro'); }}
+            className="px-4 py-2 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold rounded-xl shadow-md shadow-blue-900/30 transition cursor-pointer"
+          >
             Começar Grátis
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -86,12 +107,18 @@ export default function LandingPage() {
 
         {/* CTA Buttons */}
         <div className="relative z-10 flex flex-wrap items-center justify-center gap-4 pt-2">
-          <Link href="/cadastro" className="px-7 py-3.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-sm rounded-xl shadow-xl shadow-blue-900/40 transition active:scale-95">
+          <button
+            onClick={() => { captureLead(''); router.push('/cadastro'); }}
+            className="px-7 py-3.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-sm rounded-xl shadow-xl shadow-blue-900/40 transition active:scale-95 cursor-pointer"
+          >
             Iniciar Teste Grátis de 14 Dias
-          </Link>
-          <Link href="/painel" className="px-7 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition">
+          </button>
+          <button
+            onClick={() => { captureLead('demo'); router.push('/painel'); }}
+            className="px-7 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition cursor-pointer"
+          >
             Explorar Demonstração Interativa
-          </Link>
+          </button>
         </div>
 
         {/* Quick Social Proof */}

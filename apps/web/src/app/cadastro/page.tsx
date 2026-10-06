@@ -1,11 +1,25 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+
+async function captureLead(data: Record<string, string>) {
+  try {
+    await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+  } catch {
+    // best-effort
+  }
+}
 
 export default function RegisterPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const urlPlano = searchParams.get('plano') || '';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +27,7 @@ export default function RegisterPage() {
     uf: 'SP',
     specialty: 'Cirurgia Geral',
     clinicName: '',
+    plano: urlPlano,
     password: ''
   });
   const [loading, setLoading] = useState(false);
@@ -20,6 +35,15 @@ export default function RegisterPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    captureLead({
+      name: formData.name,
+      email: formData.email,
+      crm: formData.crm,
+      uf: formData.uf,
+      specialty: formData.specialty,
+      plano: formData.plano,
+      clinicName: formData.clinicName,
+    });
     setTimeout(() => {
       router.push('/painel');
     }, 800);
@@ -122,6 +146,21 @@ export default function RegisterPage() {
                 className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#1B58D6]"
               />
             </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="block font-semibold text-slate-300">Plano de Interesse</label>
+            <select
+              value={formData.plano}
+              onChange={(e) => setFormData({ ...formData, plano: e.target.value })}
+              className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#1B58D6]"
+            >
+              <option value="">Selecione um plano</option>
+              <option value="solo">Solo Start — R$ 39,90/mês</option>
+              <option value="consultorio">Consultório — R$ 49,90/mês</option>
+              <option value="equipe">Equipe Pro — R$ 109,90/mês</option>
+              <option value="enterprise">Enterprise — R$ 299,00/mês</option>
+            </select>
           </div>
 
           <div className="space-y-1.5">
