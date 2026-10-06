@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 async function captureLead(data: Record<string, string>) {
   try {
@@ -18,8 +18,7 @@ async function captureLead(data: Record<string, string>) {
 
 export default function RegisterPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const urlPlano = searchParams.get('plano') || '';
+  const urlPlano = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('plano') || '' : '';
   const [formData, setFormData] = useState({
     name: '',
     email: '',

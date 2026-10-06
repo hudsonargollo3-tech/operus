@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
+interface KVNamespace {
+  get(key: string): Promise<string | null>;
+  put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
+  list(options?: { prefix?: string }): Promise<{ keys: Array<{ name: string }> }>;
+}
 
 interface LeadBody {
   name?: string;
@@ -11,6 +15,8 @@ interface LeadBody {
   plano?: string;
   clinicName?: string;
 }
+
+// export const runtime = "edge"; // disabled for open-next compatibility
 
 export async function POST(request: Request) {
   try {
