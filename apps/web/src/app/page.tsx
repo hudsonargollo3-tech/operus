@@ -90,18 +90,18 @@ export default function LandingPage() {
         <div className="relative z-10 space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-sky-300 text-xs font-semibold mb-2">
             <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-            <span>O Sistema Operacional do Cirurgião Moderno</span>
+            <span>O SaaS Cirúrgico que Fecha Glosas e Libera Tempo</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-heading leading-[1.15]">
-            Da agenda com a equipe ao aceite digital de TCLE em{' '}
+            Gestão cirúrgica completa — TCLE digital, TUSS, OPME e auditoria zero glosas.
             <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-[#1B58D6] bg-clip-text text-transparent">
               30 segundos
             </span>
           </h1>
 
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Elimine glosas em multi-procedimentos TUSS, automatize a coleta legal de TCLE e unifique a comunicação com hospitais, anestesistas e fornecedores de OPME.
+            Plataforma SaaS para cirurgiões e clínicas — gestão de pacientes, agenda com equipe, aceite digital de TCLE com validade legal, cálculo TUSS automático e rastreamento de OPME.
           </p>
         </div>
 
