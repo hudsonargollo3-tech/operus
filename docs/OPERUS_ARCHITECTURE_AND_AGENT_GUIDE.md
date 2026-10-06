@@ -26,9 +26,10 @@ Run from the monorepo root (`/root/ClubeMkt/operus`):
 
 ## Deployment Configuration
 
-- **Target Domain**: `https://operus.clubemkt.digital` / `https://operus.clubemkt.online`
-- **Cloudflare Account ID**: `cb27e1a67198789eb42d11ab90737652`
-- **Config**: `apps/web/wrangler.jsonc` & `apps/web/open-next.config.ts`
+- **Cloudflare Pages (live):** `a34a3cc7.operus.pages.dev` — commit `43c1e73` (28 min ago)
+- **Custom domains:** `operus.clubemkt.digital` / `operus.clubemkt.online` (TLS cert pending)
+- **Local dev:** `http://localhost:8094` — next-server v15.5.26 (HTTP 200)
+- **Config:** `apps/web/wrangler.jsonc` & `apps/web/open-next.config.ts`
 
 ---
 

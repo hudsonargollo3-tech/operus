@@ -66,13 +66,19 @@ operus/
 
 ## 4. Endpoints & Deployment em Produção
 
-- **Landing Page & Planos:** `https://customer-journey.clubemkt.online/operus`
-- **Login:** `https://customer-journey.clubemkt.online/operus/login`
-- **Cadastro Médico:** `https://customer-journey.clubemkt.online/operus/cadastro`
-- **Super Admin SaaS:** `https://customer-journey.clubemkt.online/operus/admin`
-- **Painel da Clínica:** `https://customer-journey.clubemkt.online/operus/painel`
-- **Blog:** `https://customer-journey.clubemkt.online/operus/blog`
-- **Blueprint Vault:** `https://customer-journey.clubemkt.online/operus/blueprint` (Senha: `operus2026`)
+- **Cloudflare Pages:** `https://a34a3cc7.operus.pages.dev` (último deploy: 43c1e73 — 28 min atrás)
+- **Custom domains:** `https://operus.clubemkt.digital` / `https://operus.clubemkt.online` (cert pendente)
+- **Local dev:** `http://localhost:8094` (next-server v15.5.26, HTTP 200)
+
+| Rota | Endpoint |
+| :--- | :--- |
+| Landing Page & Planos | `https://operus.clubemkt.digital` |
+| Login | `https://operus.clubemkt.digital/login` |
+| Cadastro Médico | `https://operus.clubemkt.digital/cadastro` |
+| Super Admin SaaS | `https://operus.clubemkt.digital/admin` |
+| Painel da Clínica | `https://operus.clubemkt.digital/painel` |
+| Blog | `https://operus.clubemkt.digital/blog` |
+| Blueprint Vault | `https://operus.clubemkt.digital/blueprint` (Senha: `operus2026`) |
 
 ---
 
