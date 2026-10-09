@@ -5,19 +5,29 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
 
-// Lead capture via Cloudflare KV
-async function captureLead(plano: string) {
+// Capture lead with UTM tracking
+async function captureLeadWithTracking(plano: string) {
   try {
+    const utm_source = new URLSearchParams(window.location.search).get('utm_source') || 'landing';
+    const utm_campaign = new URLSearchParams(window.location.search).get('utm_campaign') || '';
+    const utm_medium = new URLSearchParams(window.location.search).get('utm_medium') || '';
+    
     await fetch('/api/leads', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ plano, source: 'landing' }),
+      body: JSON.stringify({ 
+        plano, 
+        source: 'landing',
+        utm_source,
+        utm_campaign,
+        utm_medium,
+        landing_page: window.location.href,
+      }),
     });
   } catch {
     // Silently fail — lead capture is best-effort
   }
 }
-
 
 
 export default function LandingPage() {
@@ -31,6 +41,11 @@ export default function LandingPage() {
     }, 450);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleCTAClick = (plano: string) => {
+    captureLeadWithTracking(plano);
+    router.push(`/cadastro?plano=${plano}`);
+  };
 
   if (loading) {
     return <LoadingScreen message="Operus Surgical Suite" submessage="Iniciando plataforma cirúrgica..." />;
@@ -75,7 +90,7 @@ export default function LandingPage() {
             Entrar
           </Link>
           <button
-            onClick={() => { captureLead(''); router.push('/cadastro'); }}
+            onClick={() => handleCTAClick('')}
             className="px-4 py-2 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold rounded-xl shadow-md shadow-blue-900/30 transition cursor-pointer"
           >
             Começar Grátis
@@ -108,13 +123,13 @@ export default function LandingPage() {
         {/* CTA Buttons */}
         <div className="relative z-10 flex flex-wrap items-center justify-center gap-4 pt-2">
           <button
-            onClick={() => { captureLead(''); router.push('/cadastro'); }}
+            onClick={() => handleCTAClick('')}
             className="px-7 py-3.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-sm rounded-xl shadow-xl shadow-blue-900/40 transition active:scale-95 cursor-pointer"
           >
             Iniciar Teste Grátis de 14 Dias
           </button>
           <button
-            onClick={() => { captureLead('demo'); router.push('/painel'); }}
+            onClick={() => handleCTAClick('demo')}
             className="px-7 py-3.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition cursor-pointer"
           >
             Explorar Demonstração Interativa
@@ -222,9 +237,12 @@ export default function LandingPage() {
                 <li className="flex items-center gap-1.5">✓ Timeline da agenda semanal</li>
               </ul>
             </div>
-            <Link href="/cadastro?plano=solo" className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs">
+            <button 
+              onClick={() => handleCTAClick('solo')}
+              className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs"
+            >
               Começar Solo
-            </Link>
+            </button>
           </div>
 
           {/* Plano 2: Duo / Consultório */}
@@ -251,9 +269,12 @@ export default function LandingPage() {
                 <li className="flex items-center gap-1.5">✓ <strong>Gerador de Orçamentos</strong> Cirúrgicos</li>
               </ul>
             </div>
-            <Link href="/cadastro?plano=consultorio" className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs">
+            <button
+              onClick={() => handleCTAClick('consultorio')}
+              className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs"
+            >
               Começar Consultório
-            </Link>
+            </button>
           </div>
 
           {/* Plano 3: Equipe Pro (Destaque) */}
@@ -284,9 +305,12 @@ export default function LandingPage() {
                 <li className="flex items-center gap-1.5">✓ Auditoria TUSS e Orçamentos</li>
               </ul>
             </div>
-            <Link href="/cadastro?plano=equipe" className="w-full py-2.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-center rounded-xl shadow-lg shadow-blue-900/40 transition block text-xs">
+            <button
+              onClick={() => handleCTAClick('equipe')}
+              className="w-full py-2.5 bg-[#1B58D6] hover:bg-[#2766E6] text-white font-bold text-center rounded-xl shadow-lg shadow-blue-900/40 transition block text-xs"
+            >
               Assinar Equipe Pro
-            </Link>
+            </button>
           </div>
 
           {/* Plano 4: Clínica Enterprise */}
@@ -314,9 +338,12 @@ export default function LandingPage() {
                 <li className="flex items-center gap-1.5">✓ Gerente de Conta Dedicado VIP</li>
               </ul>
             </div>
-            <Link href="/cadastro?plano=enterprise" className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs">
+            <button
+              onClick={() => handleCTAClick('enterprise')}
+              className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-xl transition block text-xs"
+            >
               Falar com Consultor
-            </Link>
+            </button>
           </div>
         </div>
       </section>

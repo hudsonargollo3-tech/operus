@@ -4,12 +4,30 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+// Capture lead with UTM tracking
 async function captureLead(data: Record<string, string>) {
   try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utm_source = urlParams.get('utm_source') || 'landing';
+    const utm_campaign = urlParams.get('utm_campaign') || '';
+    const utm_medium = urlParams.get('utm_medium') || '';
+    
     await fetch('/api/leads', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        crm: data.crm,
+        uf: data.uf,
+        specialty: data.specialty,
+        plano: data.plano,
+        clinicName: data.clinicName,
+        utm_source,
+        utm_campaign,
+        utm_medium,
+        landing_page: window.location.href,
+      }),
     });
   } catch {
     // best-effort
@@ -30,6 +48,11 @@ export default function RegisterPage() {
     password: ''
   });
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Sync plano from URL to form state
+    setFormData(prev => ({ ...prev, plano: urlPlano || prev.plano }));
+  }, [urlPlano]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -189,7 +212,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 bg-[#1B58D6] hover:bg-[#2766E6] active:scale-[0.98] text-white font-bold rounded-xl shadow-lg shadow-blue-900/40 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-2"
+            className="w-full py-3.5 bg-[#1B58D6] hover:bg-[#2766E6] active:scale-95 text-white font-bold rounded-xl shadow-lg shadow-blue-900/40 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
           >
             {loading ? (
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
