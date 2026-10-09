@@ -28,3 +28,6 @@ build/
 # OS metadata
 .DS_Store
 Thumbs.db
+.open-next/
+apps/web/.open-next/
+apps/web/.wrangler/
